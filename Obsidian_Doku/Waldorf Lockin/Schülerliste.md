@@ -1,0 +1,11 @@
+- Welche Spalten müssen rein?
+	- Name
+	- Nachname
+	- Geburtstag
+	- #Hash für Eindeutigkeit / Primär Schlüssel
+- Wo gespeichert?
+	- Postgress-Datenbank
+	- CSV
+	- Exceldokument
+- #Synchronisierung
+	- siehe 
