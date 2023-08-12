@@ -1,0 +1,2 @@
+- [ ] Start oder Neustart automatischer Start
+- [ ] Datenschutz

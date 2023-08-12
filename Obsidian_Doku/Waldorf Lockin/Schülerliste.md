@@ -2,7 +2,7 @@
 	- Name
 	- Nachname
 	- Geburtstag
-	- #Hash für Eindeutigkeit / Primär Schlüssel
+	- #Hash für Eindeutigkeit / Primär Schlüssel #Tabelle
 - Wo gespeichert?
 	- Postgress-Datenbank
 	- CSV
