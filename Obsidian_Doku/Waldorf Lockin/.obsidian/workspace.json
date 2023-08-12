@@ -62,9 +62,57 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "2acbe910118b5363",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Oberfläche Umsetzung.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "77bdd1dc3de0d3e7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Oberfläche Design.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ecebaa3c6500b5b6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sicherheit.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6ea4716bfe6fcdf9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Offene Frage.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -130,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Hardware.md",
+                "file": "Offene Frage.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Hardware.md",
+                "file": "Offene Frage.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,7 +218,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Hardware.md"
+                "file": "Offene Frage.md"
               }
             }
           }
@@ -191,10 +239,14 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "4f53e060ce918c83",
+  "active": "6ea4716bfe6fcdf9",
   "lastOpenFiles": [
-    "QR-Code.md",
+    "Sicherheit.md",
+    "Offene Frage.md",
+    "Oberfläche Design.md",
+    "Oberfläche Umsetzung.md",
     "Hardware.md",
+    "QR-Code.md",
     "Schülerliste.md",
     "Synchronisierung Daten.md"
   ]
