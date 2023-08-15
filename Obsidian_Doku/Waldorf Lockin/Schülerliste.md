@@ -4,8 +4,8 @@
 	- Geburtstag
 	- #Hash für Eindeutigkeit / Primär Schlüssel #Tabelle
 - Wo gespeichert?
-	- Postgress-Datenbank
 	- CSV
 	- Exceldokument
+	- SQLLite
 - #Synchronisierung
 	- siehe 

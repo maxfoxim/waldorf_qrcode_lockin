@@ -28,7 +28,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PythonCode/Wichtige Erkenntnisse.md",
+                "file": "Synchronisierung Daten.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "PythonCode/Wichtige Erkenntnisse.md",
+                "file": "Synchronisierung Daten.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "PythonCode/Wichtige Erkenntnisse.md",
+                "file": "Synchronisierung Daten.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PythonCode/Wichtige Erkenntnisse.md"
+                "file": "Synchronisierung Daten.md"
               }
             }
           }
@@ -164,21 +164,21 @@
   },
   "active": "b07c75ea5940f4e2",
   "lastOpenFiles": [
-    "PythonCode/Pakete.md",
-    "PythonCode/Wichtige Erkenntnisse.md",
-    "PythonCode",
+    "Schülerliste.md",
     "Unbenannt.canvas",
+    "Django Einstellungen.md",
+    "Oberfläche Design.md",
+    "PythonCode/Wichtige Erkenntnisse oder gemachte Fehler.md",
+    "PythonCode/Pakete.md",
+    "PythonCode",
     "Konzepte/Data Stream.md",
     "Offene Frage.md",
     "Detailteufel.md",
     "Allgemeiner Programmablauf.md",
-    "Django Einstellungen.md",
     "Sicherheit.md",
-    "Oberfläche Design.md",
     "Oberfläche Umsetzung.md",
     "Hardware.md",
     "QR-Code.md",
-    "Schülerliste.md",
     "Konzepte",
     "Missbrauch.md",
     "Datenbank.md",
