@@ -2,6 +2,15 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+import django_tables2 as tables
+
+
+class Person(models.Model):
+    vorname =  models.CharField(max_length=100, verbose_name="Vorname")
+    nachname = models.CharField(max_length=100, verbose_name="Nachname")
+    klasse =   models.CharField(max_length=2,   verbose_name="Klasse")
+    qr_id  =   models.IntegerField(default=0)
+
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)

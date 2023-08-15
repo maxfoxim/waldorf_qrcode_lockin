@@ -8,159 +8,34 @@
         "type": "tabs",
         "children": [
           {
-            "id": "845a7fdef53d3cad",
+            "id": "3ab22cdf509eaef2",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "802a002cd1698c6e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Schülerliste.md",
-                "mode": "source",
-                "source": false
+                "file": "Unbenannt.canvas",
+                "viewState": {
+                  "x": -119,
+                  "y": 161.5,
+                  "zoom": -0.1467912921422811
+                }
               }
             }
           },
           {
-            "id": "7be515da1e085d21",
+            "id": "b07c75ea5940f4e2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Schülerliste.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0d0d1b0f53c0b19c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "QR-Code.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4f53e060ce918c83",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hardware.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2acbe910118b5363",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Oberfläche Umsetzung.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "77bdd1dc3de0d3e7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Oberfläche Design.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ecebaa3c6500b5b6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Sicherheit.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6ea4716bfe6fcdf9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Offene Frage.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d7f4f466ba63bea9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Django Einstellungen.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "15fdac662ef9ceb9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Allgemeiner Programmablauf.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "dfacd8dee227a641",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Detailteufel.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2998ac7e40fe30d4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Datenbank.md",
+                "file": "PythonCode/Wichtige Erkenntnisse.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 12
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -226,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Datenbank.md",
+                "file": "PythonCode/Wichtige Erkenntnisse.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -243,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Datenbank.md",
+                "file": "PythonCode/Wichtige Erkenntnisse.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -266,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Datenbank.md"
+                "file": "PythonCode/Wichtige Erkenntnisse.md"
               }
             }
           }
@@ -287,19 +162,26 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "2998ac7e40fe30d4",
+  "active": "b07c75ea5940f4e2",
   "lastOpenFiles": [
-    "Schülerliste.md",
-    "Datenbank.md",
+    "PythonCode/Pakete.md",
+    "PythonCode/Wichtige Erkenntnisse.md",
+    "PythonCode",
+    "Unbenannt.canvas",
+    "Konzepte/Data Stream.md",
+    "Offene Frage.md",
     "Detailteufel.md",
     "Allgemeiner Programmablauf.md",
     "Django Einstellungen.md",
-    "Offene Frage.md",
     "Sicherheit.md",
     "Oberfläche Design.md",
     "Oberfläche Umsetzung.md",
     "Hardware.md",
     "QR-Code.md",
+    "Schülerliste.md",
+    "Konzepte",
+    "Missbrauch.md",
+    "Datenbank.md",
     "Synchronisierung Daten.md"
   ]
 }

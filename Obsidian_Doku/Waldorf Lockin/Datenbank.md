@@ -2,7 +2,8 @@ Tabelle Schüler #Tabelle
 1. Name 
 2. Nachname
 3. Geburtstag
-4. ID Primary Key
+4. Klasse
+5. ID Primary Key
 
 
 Tabelle Anwesenheit:
