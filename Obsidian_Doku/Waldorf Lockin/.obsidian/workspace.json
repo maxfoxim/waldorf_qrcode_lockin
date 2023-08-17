@@ -28,7 +28,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Synchronisierung Daten.md",
+                "file": "Offene Frage.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Synchronisierung Daten.md",
+                "file": "Offene Frage.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Synchronisierung Daten.md",
+                "file": "Offene Frage.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Synchronisierung Daten.md"
+                "file": "Offene Frage.md"
               }
             }
           }
@@ -164,24 +164,25 @@
   },
   "active": "b07c75ea5940f4e2",
   "lastOpenFiles": [
-    "Schülerliste.md",
-    "Unbenannt.canvas",
-    "Django Einstellungen.md",
-    "Oberfläche Design.md",
-    "PythonCode/Wichtige Erkenntnisse oder gemachte Fehler.md",
     "PythonCode/Pakete.md",
+    "PythonCode/Seite neu Laden.md",
+    "PythonCode/Wichtige Erkenntnisse oder gemachte Fehler.md",
+    "Detailteufel.md",
+    "Django Einstellungen.md",
+    "Hardware.md",
+    "Missbrauch.md",
+    "Oberfläche Design.md",
+    "Oberfläche Umsetzung.md",
+    "Offene Frage.md",
+    "QR-Code.md",
+    "Schülerliste.md",
+    "Sicherheit.md",
+    "Synchronisierung Daten.md",
+    "Unbenannt.canvas",
+    "Allgemeiner Programmablauf.md",
+    "Datenbank.md",
     "PythonCode",
     "Konzepte/Data Stream.md",
-    "Offene Frage.md",
-    "Detailteufel.md",
-    "Allgemeiner Programmablauf.md",
-    "Sicherheit.md",
-    "Oberfläche Umsetzung.md",
-    "Hardware.md",
-    "QR-Code.md",
-    "Konzepte",
-    "Missbrauch.md",
-    "Datenbank.md",
-    "Synchronisierung Daten.md"
+    "Konzepte"
   ]
 }
