@@ -101,7 +101,11 @@
             "state": {
               "type": "backlink",
               "state": {
+<<<<<<< HEAD
                 "file": "QR-Code.md",
+=======
+                "file": "Offene Frage.md",
+>>>>>>> 33feca21f9771776b06170def231654e00139306
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +122,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+<<<<<<< HEAD
                 "file": "QR-Code.md",
+=======
+                "file": "Offene Frage.md",
+>>>>>>> 33feca21f9771776b06170def231654e00139306
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +149,11 @@
             "state": {
               "type": "outline",
               "state": {
+<<<<<<< HEAD
                 "file": "QR-Code.md"
+=======
+                "file": "Offene Frage.md"
+>>>>>>> 33feca21f9771776b06170def231654e00139306
               }
             }
           }
@@ -164,6 +176,10 @@
   },
   "active": "b07c75ea5940f4e2",
   "lastOpenFiles": [
+<<<<<<< HEAD
+=======
+    "QR-Code.md",
+>>>>>>> 33feca21f9771776b06170def231654e00139306
     "Offene Frage.md",
     "PythonCode/Pakete.md",
     "PythonCode/Seite neu Laden.md",
@@ -174,7 +190,10 @@
     "Missbrauch.md",
     "Oberfläche Design.md",
     "Oberfläche Umsetzung.md",
+<<<<<<< HEAD
     "QR-Code.md",
+=======
+>>>>>>> 33feca21f9771776b06170def231654e00139306
     "Schülerliste.md",
     "Sicherheit.md",
     "Synchronisierung Daten.md",
