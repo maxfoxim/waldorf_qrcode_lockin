@@ -1,4 +1,1 @@
 - Mit Django
-- Mit Flask
-	- https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3
-	- https://www.freecodecamp.org/news/how-to-use-python-and-flask-to-build-a-web-app-an-in-depth-tutorial-437dbfe9f1c6/
