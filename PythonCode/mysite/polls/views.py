@@ -9,8 +9,7 @@ from django_tables2 import SingleTableView
 
 """
 def index(request):   
-    return HttpResponse("Hello, world. You're at the polls index.")       
-      
+    return HttpResponse("Hello, world. You're at the polls index.")             
 """
 
 
