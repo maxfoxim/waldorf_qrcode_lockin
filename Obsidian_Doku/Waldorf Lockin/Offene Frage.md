@@ -5,5 +5,6 @@
 - [ ] Was gilt bezüglich Datenschutz?
 - [ ] Updates aufspielen (Bugfixing?)
 - [ ] Fingerabdruck als Alternative zu QR-Code denkbar?
+- [ ] QR-Code #qrcode
 
       
