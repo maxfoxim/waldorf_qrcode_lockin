@@ -20,6 +20,30 @@
             }
           },
           {
+            "id": "f839f3232d1a89b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Links.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "60d235316a0d96f3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "To-Do.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "26dab2338b1bb814",
             "type": "leaf",
             "state": {
@@ -31,7 +55,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -97,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Oberfläche Design.md",
+                "file": "To-Do.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Oberfläche Design.md",
+                "file": "To-Do.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Oberfläche Design.md"
+                "file": "To-Do.md"
               }
             }
           }
@@ -158,10 +183,12 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "b07c75ea5940f4e2",
+  "active": "60d235316a0d96f3",
   "lastOpenFiles": [
-    "Unbenannt.canvas",
+    "Links.md",
+    "To-Do.md",
     "Oberfläche Design.md",
+    "Unbenannt.canvas",
     "Datenbank.md",
     "Detailteufel.md",
     "Django Einstellungen.md",

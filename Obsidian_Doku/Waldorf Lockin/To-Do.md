@@ -1,0 +1,10 @@
+- [ ] Tabellen
+	- [ ] Datumstabelle erstellen
+- [ ] Oberfläche
+	- [ ] Beginn Button 
+		- [ ] Zeit verknüpfen
+	- [ ] Ende Button
+	- [ ] Feierabend button
+	- [ ] Schülerlisten erstellen
+- [ ] Code
+	- [ ] aufräumen

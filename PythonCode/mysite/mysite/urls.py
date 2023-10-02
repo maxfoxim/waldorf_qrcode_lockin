@@ -16,11 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from polls.views import PersonTableView
+from polls.views import PersonTableView, PersonTableViewSpeichern,post_edit,html_button
 
 
 urlpatterns = [
     #path("polls/", include("polls.urls")),
     path("polls/", PersonTableView.as_view()),
-    path("admin/", admin.site.urls)
+    path("admin/", admin.site.urls),
+    #path('zeitspeichern/', post_edit, name='post_edit')
+    #path('zeitspeichern/', PersonTableViewSpeichern.as_view())
+    path('zeitspeichern/<int:id>/', post_edit, name='zeitspeichern')
 ]
