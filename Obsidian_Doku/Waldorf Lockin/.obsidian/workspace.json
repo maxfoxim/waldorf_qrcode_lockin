@@ -8,34 +8,30 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3ab22cdf509eaef2",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Unbenannt.canvas",
-                "viewState": {
-                  "x": -119,
-                  "y": 161.5,
-                  "zoom": -0.1467912921422811
-                }
-              }
-            }
-          },
-          {
             "id": "b07c75ea5940f4e2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "QR-Code.md",
+                "file": "Oberfläche Design.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "26dab2338b1bb814",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Oberfläche Design.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,11 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-<<<<<<< HEAD
-                "file": "QR-Code.md",
-=======
-                "file": "Offene Frage.md",
->>>>>>> 33feca21f9771776b06170def231654e00139306
+                "file": "Oberfläche Design.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,11 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-<<<<<<< HEAD
-                "file": "QR-Code.md",
-=======
-                "file": "Offene Frage.md",
->>>>>>> 33feca21f9771776b06170def231654e00139306
+                "file": "Oberfläche Design.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,11 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-<<<<<<< HEAD
-                "file": "QR-Code.md"
-=======
-                "file": "Offene Frage.md"
->>>>>>> 33feca21f9771776b06170def231654e00139306
+                "file": "Oberfläche Design.md"
               }
             }
           }
@@ -176,30 +160,25 @@
   },
   "active": "b07c75ea5940f4e2",
   "lastOpenFiles": [
-<<<<<<< HEAD
-=======
-    "QR-Code.md",
->>>>>>> 33feca21f9771776b06170def231654e00139306
-    "Offene Frage.md",
-    "PythonCode/Pakete.md",
-    "PythonCode/Seite neu Laden.md",
-    "PythonCode/Wichtige Erkenntnisse oder gemachte Fehler.md",
+    "Unbenannt.canvas",
+    "Oberfläche Design.md",
+    "Datenbank.md",
     "Detailteufel.md",
     "Django Einstellungen.md",
     "Hardware.md",
     "Missbrauch.md",
-    "Oberfläche Design.md",
     "Oberfläche Umsetzung.md",
-<<<<<<< HEAD
-    "QR-Code.md",
-=======
->>>>>>> 33feca21f9771776b06170def231654e00139306
+    "Offene Frage.md",
+    "Tabellen.md",
     "Schülerliste.md",
+    "PythonCode/Ausführung.md",
+    "PythonCode/Wichtige Erkenntnisse oder gemachte Fehler.md",
+    "PythonCode/Seite neu Laden.md",
+    "PythonCode/Pakete.md",
+    "Allgemeiner Programmablauf.md",
+    "QR-Code.md",
     "Sicherheit.md",
     "Synchronisierung Daten.md",
-    "Unbenannt.canvas",
-    "Allgemeiner Programmablauf.md",
-    "Datenbank.md",
     "PythonCode",
     "Konzepte/Data Stream.md",
     "Konzepte"

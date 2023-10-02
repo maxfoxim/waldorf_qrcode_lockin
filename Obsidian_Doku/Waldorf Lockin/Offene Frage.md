@@ -6,5 +6,8 @@
 - [ ] Updates aufspielen (Bugfixing?)
 - [ ] Fingerabdruck als Alternative zu QR-Code denkbar?
 - [ ] QR-Code #qrcode
+	- [ ] Besondere siehe [[QR-Code]]
+- [ ] Wie sollen neue Schüler verwaltet werden?
+- [ ]  
 
       
