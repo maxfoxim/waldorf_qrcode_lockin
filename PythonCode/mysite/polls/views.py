@@ -89,7 +89,8 @@ def post_edit(request, pk):
 
 
 def ankommen_speichern(request, id):
-    Datum=Anwesenheitsliste(qr_id=id,ankunft=datetime.datetime.now(pytz.timezone('Europe/Berlin')),verlassen=timezone.now(),kommentar="Test")
+    aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
+    Datum=Anwesenheitsliste(qr_id=id,ankunft=aktuelle_zeit,verlassen=aktuelle_zeit,kommentar="Test")
     Datum.save()
     print("Zeitzone Jetzt",datetime.datetime.now(pytz.timezone('Europe/Berlin')))
     #conn=create_connection()
