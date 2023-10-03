@@ -1,11 +1,16 @@
 from django.http import HttpResponse
 from django.views.generic import ListView
 from .models import Person
-from .tables import PersonTable
+from .tables import PersonTable, AnwesenheitenTable
 from django_tables2 import SingleTableView
 #from .forms import PostForm
 from django.shortcuts import render
 from .forms import TableForm
+from polls.models import Anwesenheitsliste, Person
+
+from django.utils import timezone
+import datetime
+import pytz
 
 import sqlite3
 from sqlite3 import Error
@@ -35,16 +40,24 @@ def update_task(conn, task):
     """
     sql = ''' UPDATE polls_person
                 SET klasse = ? 
-              WHERE id = ?'''
+                   WHERE id = ?'''
     cur = conn.cursor()
     cur.execute(sql, task)
     conn.commit()
 
 
-"""
-def index(request):   
-    return HttpResponse("Hello, world. You're at the polls index.")                 
-"""
+def insert_task(conn, task):
+    """
+    update priority, begin_date, and end date of a task
+    :param conn:
+    :param task:
+    :return: project id
+    """
+    sql = ''' CREATE INTO polls_anwesenheitsliste
+              VALUES (?,?,?,?)'''
+    cur = conn.cursor()
+    cur.execute(sql, task)
+    conn.commit()
 
 
 class PersonTableView(SingleTableView):
@@ -52,11 +65,11 @@ class PersonTableView(SingleTableView):
     table_class = PersonTable
     template_name = 'people.html'
 
-class PersonTableViewSpeichern(SingleTableView):
-    model = Person
-    table_class = PersonTable
-    template_name = 'people.html'
 
+class AnwesenheitslisteView(SingleTableView):
+    model = Anwesenheitsliste
+    table_class = AnwesenheitenTable
+    template_name = 'anwesenheiten.html'
 
 """
 def post_edit(request, pk):
@@ -73,11 +86,18 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 """
-def post_edit(request, id):
-    conn=create_connection()
-    print("TEST",id)
-    update_task(conn, ("10x",id))    
 
+
+def ankommen_speichern(request, id):
+    Datum=Anwesenheitsliste(qr_id=id,ankunft=datetime.datetime.now(pytz.timezone('Europe/Berlin')),verlassen=timezone.now(),kommentar="Test")
+    Datum.save()
+    print("Zeitzone Jetzt",datetime.datetime.now(pytz.timezone('Europe/Berlin')))
+    #conn=create_connection()
+    #update_task(conn, ("10x",id))    
+
+def verlassen_speichern(request, id):
+    conn=create_connection()
+    update_task(conn, ("10x",id))   
 
 def html_button(request):
     if request.method == "POST":  

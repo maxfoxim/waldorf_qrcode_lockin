@@ -16,14 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from polls.views import PersonTableView, PersonTableViewSpeichern,post_edit,html_button
+from polls.views import PersonTableView,ankommen_speichern,verlassen_speichern,AnwesenheitslisteView
 
 
 urlpatterns = [
     #path("polls/", include("polls.urls")),
     path("polls/", PersonTableView.as_view()),
     path("admin/", admin.site.urls),
-    #path('zeitspeichern/', post_edit, name='post_edit')
-    #path('zeitspeichern/', PersonTableViewSpeichern.as_view())
-    path('zeitspeichern/<int:id>/', post_edit, name='zeitspeichern')
+    path('zeitspeichern/<int:id>/', ankommen_speichern, name='zeitspeichern'),
+    path("anwesenheiten/",AnwesenheitslisteView.as_view())
 ]

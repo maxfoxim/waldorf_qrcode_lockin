@@ -4,6 +4,7 @@
 	- [ ] Beginn Button 
 		- [ ] Zeit verknüpfen
 	- [ ] Ende Button
+		- [ ] hier muss Eintrag von heute benutzt werden
 	- [ ] Feierabend button
 	- [ ] Schülerlisten erstellen
 - [ ] Code

@@ -11,6 +11,13 @@ class Person(models.Model):
     klasse =   models.CharField(max_length=2,   verbose_name="Klasse")
     qr_id  =   models.IntegerField(default=0)
 
+class Anwesenheitsliste(models.Model):
+    qr_id  =      models.IntegerField(default=0)
+    ankunft   =   models.DateTimeField(verbose_name="Ankunft")
+    verlassen =   models.DateTimeField(verbose_name="Verlassen")
+    kommentar =   models.CharField(max_length=100,   verbose_name="Kommentar")
+
+
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
