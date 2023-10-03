@@ -4,10 +4,9 @@ from .models import Person,Anwesenheitsliste
 from django_tables2 import TemplateColumn
 
 class PersonTable(tables.Table):
-
-    #edit = tables.TemplateColumn('<a href='{% url "edit_my_model_instance" record.id %}'>Edit</a>', verbose_name=u'Edit', )    
-    anmeldung =    tables.TemplateColumn('<a href="{% url "zeitspeichern" record.id%}">Anmeldung</a>', verbose_name=("Anmeldung"), orderable=False)
-    verlassen =    tables.TemplateColumn('<a href="{% url "zeitspeichern" record.id%}">Verlassen</a>', verbose_name=("Verlassen"), orderable=False)
+    
+    anmeldung =    tables.TemplateColumn('<a href="{% url "zeitspeichernankommen" record.id%}">Anmeldung</a>',verbose_name=("Anmeldung"), orderable=False)
+    verlassen =    tables.TemplateColumn('<a href="{% url "zeitspeichernverlassen" record.id%}">Verlassen</a>', verbose_name=("Verlassen"), orderable=False)
 
     class Meta:
         model = Person

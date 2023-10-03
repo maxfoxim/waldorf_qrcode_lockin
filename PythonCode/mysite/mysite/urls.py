@@ -23,6 +23,7 @@ urlpatterns = [
     #path("polls/", include("polls.urls")),
     path("polls/", PersonTableView.as_view()),
     path("admin/", admin.site.urls),
-    path('zeitspeichern/<int:id>/', ankommen_speichern, name='zeitspeichern'),
+    path("zeitspeichernankommen/<int:id>/",ankommen_speichern, name='zeitspeichernankommen'),
+    path('zeitspeichernverlassen/<int:id>/',verlassen_speichern, name='zeitspeichernverlassen'),
     path("anwesenheiten/",AnwesenheitslisteView.as_view())
 ]

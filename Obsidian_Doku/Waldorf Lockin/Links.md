@@ -11,3 +11,6 @@ https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models
 w3school
 https://www.w3schools.com/django/index.php
 
+
+Wie man neue User anlegt:
+https://www.w3schools.com/django/django_update_record.php

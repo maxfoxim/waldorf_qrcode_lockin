@@ -16,11 +16,6 @@ import sqlite3
 from sqlite3 import Error
 def create_connection():
     db_file="db.sqlite3"
-    """ create a database connection to the SQLite database
-        specified by db_file
-    :param db_file: database file
-    :return: Connection object or None
-    """
     conn = None
     try:
         conn = sqlite3.connect(db_file)
@@ -32,12 +27,6 @@ def create_connection():
 
 
 def update_task(conn, task):
-    """
-    update priority, begin_date, and end date of a task
-    :param conn:
-    :param task:
-    :return: project id
-    """
     sql = ''' UPDATE polls_person
                 SET klasse = ? 
                    WHERE id = ?'''
@@ -47,12 +36,6 @@ def update_task(conn, task):
 
 
 def insert_task(conn, task):
-    """
-    update priority, begin_date, and end date of a task
-    :param conn:
-    :param task:
-    :return: project id
-    """
     sql = ''' CREATE INTO polls_anwesenheitsliste
               VALUES (?,?,?,?)'''
     cur = conn.cursor()
@@ -90,16 +73,30 @@ def post_edit(request, pk):
 
 def ankommen_speichern(request, id):
     aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
-    Datum=Anwesenheitsliste(qr_id=id,ankunft=aktuelle_zeit,verlassen=aktuelle_zeit,kommentar="Test")
-    Datum.save()
+    current_day = timezone.now().day
+    # nach ID und aktuellem Tag filtern --> gibt Liste zurück
+    Bereits_Eingeloggt=Anwesenheitsliste.objects.filter(qr_id=id).filter(ankunft__day=current_day).values_list("ankunft")
+    
+    if len(Bereits_Eingeloggt)>0:
+        pass
+    else:
+        Datum=Anwesenheitsliste(qr_id=id,ankunft=aktuelle_zeit,verlassen=aktuelle_zeit,kommentar="Test")
+        Datum.save()
+    
     print("Zeitzone Jetzt",datetime.datetime.now(pytz.timezone('Europe/Berlin')))
-    #conn=create_connection()
-    #update_task(conn, ("10x",id))    
+  
 
 def verlassen_speichern(request, id):
-    conn=create_connection()
-    update_task(conn, ("10x",id))   
+    aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
+    current_day = timezone.now().day
+    Ausloggwert=Anwesenheitsliste.objects.get(qr_id=id,ankunft__day=current_day)    
+    Ausloggwert.verlassen=aktuelle_zeit
+    Ausloggwert.save()
+    print("Zeitzone Verlassen",Ausloggwert.verlassen)
 
+
+
+"""
 def html_button(request):
     if request.method == "POST":  
         form = TableForm(request.POST)  
@@ -109,3 +106,4 @@ def html_button(request):
     else:  
         form = TableForm()  
     return render(request,'people.html',{'form':form})
+"""

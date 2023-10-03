@@ -10,3 +10,11 @@ https://docs.djangoproject.com/en/4.2/intro/tutorial02/
 ```python
 
 ```
+
+
+
+Terminal DB abfragen:
+
+```python
+Test=Anwesenheitsliste.objects.filter(qr_id=1).filter(ankunft__day=3).values_list("ankunft").all()
+```
