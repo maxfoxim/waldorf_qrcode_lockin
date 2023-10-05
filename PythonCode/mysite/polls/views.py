@@ -86,8 +86,10 @@ def ankommen_speichern(request, id):
     print("Zeitzone Jetzt",datetime.datetime.now(pytz.timezone('Europe/Berlin')))
  
     meetingData = Anwesenheitsliste.objects.all()
-    return render(request, 'hello.html', {'data': meetingData })
-  
+    print("ID ist",id)
+    return render(request, 'hello.html', {'data': [id]})
+
+
 
 def verlassen_speichern(request, id):
     aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
@@ -98,7 +100,9 @@ def verlassen_speichern(request, id):
     print("Zeitzone Verlassen",Ausloggwert.verlassen)
 
 
-
+def anwesenheitsliste(request):
+    meetingData = Anwesenheitsliste.objects.all()
+    return render(request, 'anwesenheiten.html', {'data': meetingData })
 """
 def html_button(request):
     if request.method == "POST":  

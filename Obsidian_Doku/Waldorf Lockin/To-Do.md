@@ -8,5 +8,11 @@
 		- [x] hier muss Eintrag von heute benutzt werden
 	- [ ] Feierabend button
 	- [ ] Schülerlisten erstellen
+	- [ ] Alert Fenster wenn auf An/Abmelden gedrückt
 - [ ] Code
 	- [ ] aufräumen
+	- [ ] Namen anpassen
+	- [ ] Export der Datei nach Excel
+- [ ] HTML
+	- [ ] Waldorf Logo einbauen
+	- [ ] Look and Feel ? Von Seite zu bekommen?

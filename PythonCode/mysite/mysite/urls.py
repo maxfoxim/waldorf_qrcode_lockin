@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from polls.views import PersonTableView,ankommen_speichern,verlassen_speichern,AnwesenheitslisteView
+from polls.views import PersonTableView,ankommen_speichern,verlassen_speichern,AnwesenheitslisteView,anwesenheitsliste
 
 
 urlpatterns = [
@@ -25,5 +25,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("zeitspeichernankommen/<int:id>/"  ,ankommen_speichern, name='zeitspeichernankommen'),
     path('zeitspeichernverlassen/<int:id>/',verlassen_speichern, name='zeitspeichernverlassen'),
-    path("anwesenheiten/",AnwesenheitslisteView.as_view())
+    path("anwesenheiten/",anwesenheitsliste)
 ]
