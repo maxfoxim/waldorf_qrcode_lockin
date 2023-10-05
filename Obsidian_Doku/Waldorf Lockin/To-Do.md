@@ -2,9 +2,10 @@
 	- [ ] Datumstabelle erstellen
 - [ ] Oberfläche
 	- [ ] Beginn Button 
-		- [ ] Zeit verknüpfen
+		- [x] Zeit verknüpfen
 	- [ ] Ende Button
-		- [ ] hier muss Eintrag von heute benutzt werden
+		- [ ] Was wenn vor Beginn gedrückt
+		- [x] hier muss Eintrag von heute benutzt werden
 	- [ ] Feierabend button
 	- [ ] Schülerlisten erstellen
 - [ ] Code

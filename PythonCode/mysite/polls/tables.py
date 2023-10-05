@@ -10,6 +10,7 @@ class PersonTable(tables.Table):
 
     class Meta:
         model = Person
+       #managed = True
         template_name = "django_tables2/bootstrap.html"
         fields = ["id","vorname", "nachname","klasse","anmeldung","verlassen"]
 
@@ -21,3 +22,4 @@ class AnwesenheitenTable(tables.Table):
         #attrs = {'class': 'table table-sm'}
         template_name = "django_tables2/bootstrap.html"
         fields = ["id","qr_id", "ankunft","verlassen","kommentar"]
+        #managed = True

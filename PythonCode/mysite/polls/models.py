@@ -6,16 +6,19 @@ import django_tables2 as tables
 
 
 class Person(models.Model):
+    id = models.IntegerField(primary_key=True) # optional
     vorname =  models.CharField(max_length=100, verbose_name="Vorname")
     nachname = models.CharField(max_length=100, verbose_name="Nachname")
     klasse =   models.CharField(max_length=2,   verbose_name="Klasse")
     qr_id  =   models.IntegerField(default=0)
 
 class Anwesenheitsliste(models.Model):
-    qr_id  =      models.IntegerField(default=0)
+    #id =          models.IntegerField(primary_key=True)
+    #qr_id  =      models.IntegerField(default=0)
     ankunft   =   models.DateTimeField(verbose_name="Ankunft")
     verlassen =   models.DateTimeField(verbose_name="Verlassen")
     kommentar =   models.CharField(max_length=100,   verbose_name="Kommentar")
+    qr =          models.ForeignKey(Person,on_delete=models.CASCADE)
 
 
 

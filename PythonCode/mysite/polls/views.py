@@ -77,13 +77,16 @@ def ankommen_speichern(request, id):
     # nach ID und aktuellem Tag filtern --> gibt Liste zurück
     Bereits_Eingeloggt=Anwesenheitsliste.objects.filter(qr_id=id).filter(ankunft__day=current_day).values_list("ankunft")
     
-    if len(Bereits_Eingeloggt)>0:
+    if len(Bereits_Eingeloggt)>0: # Bereits ein Eintrag vorhanden
         pass
     else:
         Datum=Anwesenheitsliste(qr_id=id,ankunft=aktuelle_zeit,verlassen=aktuelle_zeit,kommentar="Test")
         Datum.save()
     
     print("Zeitzone Jetzt",datetime.datetime.now(pytz.timezone('Europe/Berlin')))
+ 
+    meetingData = Anwesenheitsliste.objects.all()
+    return render(request, 'hello.html', {'data': meetingData })
   
 
 def verlassen_speichern(request, id):
