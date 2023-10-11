@@ -84,20 +84,39 @@ def ankommen_speichern(request, id):
         Datum.save()
     
     print("Zeitzone Jetzt",datetime.datetime.now(pytz.timezone('Europe/Berlin')))
- 
+
     meetingData = Anwesenheitsliste.objects.all()
-    print("ID ist",id)
-    return render(request, 'hello.html', {'data': [id]})
+    Personen=Person.objects.get(id=id)
+    Name=Personen.vorname
+    print("ID ist",Name,Person)
+    return render(request, 'hello.html', {'data': [Name]})
 
 
 
 def verlassen_speichern(request, id):
     aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
-    Ausloggwert=Anwesenheitsliste.objects.get(qr_id=id,ankunft__day=current_day)    
-    Ausloggwert.verlassen=aktuelle_zeit
-    Ausloggwert.save()
-    print("Zeitzone Verlassen",Ausloggwert.verlassen)
+    Auslogwert=Anwesenheitsliste.objects.get(qr_id=id,ankunft__day=current_day)    
+    Auslogwert.verlassen=aktuelle_zeit
+    Auslogwert.save()
+    print("Zeitzone Verlassen",Auslogwert.verlassen)
+
+
+def alle_abmelden(request):
+    aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
+    current_day = timezone.now().day
+    Auslogwert=Anwesenheitsliste.objects.filter(ankunft__day=current_day)    
+    #Auslogwert.verlassen=aktuelle_zeit
+    print("ALLE ABMELDEN")
+    for Zeile in Auslogwert:
+        #if Zeile.verlassen==Zeile.ankunft:
+        if True:
+            Zeile.verlassen=aktuelle_zeit
+            print(Zeile)
+            Zeile.save()
+        else:
+            print("Einzeln ausgeloggt")
+    return render(request, 'feierabend.html', {'data': None })
 
 
 def anwesenheitsliste(request):
