@@ -6,7 +6,7 @@
 	- [ ] Ende Button
 		- [ ] Was wenn vor Beginn gedrückt
 		- [x] hier muss Eintrag von heute benutzt werden
-	- [ ] Feierabend button
+	- [x] Feierabend button
 	- [ ] Schülerlisten erstellen
 	- [ ] Alert Fenster wenn auf An/Abmelden gedrückt
 - [ ] Code
@@ -16,3 +16,6 @@
 - [ ] HTML
 	- [ ] Waldorf Logo einbauen
 	- [ ] Look and Feel ? Von Seite zu bekommen?
+- [ ] QR-Code
+	- [ ] Kamera verbinden
+	- [ ] QR-Code erkennen

@@ -7,6 +7,7 @@ from django_tables2 import SingleTableView
 from django.shortcuts import render
 from .forms import TableForm
 from polls.models import Anwesenheitsliste, Person
+import pandas as pd 
 
 from django.utils import timezone
 import datetime
@@ -76,7 +77,6 @@ def ankommen_speichern(request, id):
     current_day = timezone.now().day
     # nach ID und aktuellem Tag filtern --> gibt Liste zurück
     Bereits_Eingeloggt=Anwesenheitsliste.objects.filter(qr_id=id).filter(ankunft__day=current_day).values_list("ankunft")
-    
     if len(Bereits_Eingeloggt)>0: # Bereits ein Eintrag vorhanden
         pass
     else:
@@ -85,7 +85,7 @@ def ankommen_speichern(request, id):
     
     print("Zeitzone Jetzt",datetime.datetime.now(pytz.timezone('Europe/Berlin')))
 
-    meetingData = Anwesenheitsliste.objects.all()
+    #meetingData = Anwesenheitsliste.objects.all()
     Personen=Person.objects.get(id=id)
     Name=Personen.vorname
     print("ID ist",Name,Person)
@@ -119,9 +119,43 @@ def alle_abmelden(request):
     return render(request, 'feierabend.html', {'data': None })
 
 
+
+
 def anwesenheitsliste(request):
     meetingData = Anwesenheitsliste.objects.all()
     return render(request, 'anwesenheiten.html', {'data': meetingData })
+
+
+
+
+def export_excel(request):
+    anwesenheits_eintraege = Anwesenheitsliste.objects.all()
+    personen = Person.objects.all()
+    print("Personen",personen)
+    vornamen=[]
+    nachnamen=[]
+    ankunft=[]
+    verlassen=[]
+    klasse=[]
+
+    for zeile in anwesenheits_eintraege:
+        schueler=Person.objects.get(id=zeile.qr_id)
+        nachnamen .append(schueler.nachname)
+        vornamen  .append(schueler.vorname)
+        klasse    .append(schueler.klasse)
+
+        ankunft   .append(zeile.ankunft.  strftime("%m.%d.%Y %H:%M"))
+        verlassen .append(zeile.verlassen.strftime("%m.%d.%Y %H:%M"))
+
+        #print(meetingData)
+    print(nachnamen)
+    data={"Nachnamen":nachnamen,"Vornamen":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen}
+    df1 = pd.DataFrame(data,columns=['Vornamen','Nachnamen',"Klasse",'Ankunft','Verlassen'])
+    df1.to_excel("output.xlsx",index=False)  
+
+    data=[]
+    return render(request, 'excelexport.html', {'data': data })
+
 """
 def html_button(request):
     if request.method == "POST":  

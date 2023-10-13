@@ -1,5 +1,6 @@
 {# mysite/anwesenheiten.html #}
 {% load render_table from django_tables2 %}
+
 <!doctype html>
 
 <script>
@@ -96,6 +97,9 @@
             </tr>
             {% endfor %}
         </table>    
+
+        <a type="button" class="block"  href="{% url 'export_excel'%}">Excel Export</a> 
+    
     </body>
 </html>
 
