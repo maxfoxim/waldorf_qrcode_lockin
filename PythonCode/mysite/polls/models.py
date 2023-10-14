@@ -9,7 +9,7 @@ class Person(models.Model):
     id = models.IntegerField(primary_key=True) # optional
     vorname =  models.CharField(max_length=100, verbose_name="Vorname")
     nachname = models.CharField(max_length=100, verbose_name="Nachname")
-    klasse =   models.CharField(max_length=2,   verbose_name="Klasse")
+    klasse =   models.CharField(max_length=3,   verbose_name="Klasse")
     qr_id  =   models.IntegerField(default=0)
 
 class Anwesenheitsliste(models.Model):

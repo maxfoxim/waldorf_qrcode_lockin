@@ -103,6 +103,9 @@ def verlassen_speichern(request, id):
 
 
 def alle_abmelden(request):
+    """
+    Alle Schüler die sich noch nicht abgemeldet haben, zusammen abmelden.
+    """
     aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
     Auslogwert=Anwesenheitsliste.objects.filter(ankunft__day=current_day)    
@@ -129,6 +132,9 @@ def anwesenheitsliste(request):
 
 
 def export_excel(request):
+    """
+    Exportie die Anwesenheitsliste in eine Excel Datei
+    """
     anwesenheits_eintraege = Anwesenheitsliste.objects.all()
     personen = Person.objects.all()
     print("Personen",personen)
@@ -155,6 +161,22 @@ def export_excel(request):
 
     data=[]
     return render(request, 'excelexport.html', {'data': data })
+
+
+def import_excel(request):
+    """
+    Importiere die Personenliste in die DB-Tabelle Personen
+    """
+
+    Personden_pd=pd.read_excel('Personen.xlsx') 
+    for index, row in Personden_pd.iterrows():
+        print("-------------")
+        print("Row",row)
+        print("vorname",row["Vorname"],"nachname",row["Nachname"],"klasse",row["Klasse"])
+        Personen_Stand=Person(id=index,vorname=row["Vorname"],nachname=row["Nachname"],klasse=row["Klasse"],qr_id=index)
+    Personen_Stand.save()
+    return render(request, 'excelimport.html', {'data': Personen_Stand })
+
 
 """
 def html_button(request):
