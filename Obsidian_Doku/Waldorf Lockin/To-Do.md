@@ -1,5 +1,5 @@
 - [ ] Tabellen
-	- [ ] Datumstabelle erstellen
+	- [x] Datumstabelle erstellen
 - [ ] Oberfläche
 	- [ ] Beginn Button 
 		- [x] Zeit verknüpfen
@@ -7,12 +7,14 @@
 		- [ ] Was wenn vor Beginn gedrückt
 		- [x] hier muss Eintrag von heute benutzt werden
 	- [x] Feierabend button
-	- [ ] Schülerlisten erstellen
+	- [x] Schülerlisten erstellen
 	- [ ] Alert Fenster wenn auf An/Abmelden gedrückt
+- [ ] Tabellen
+	- [ ] 2->3 Zeichen bei Klasse aktualisieren
 - [ ] Code
 	- [ ] aufräumen
 	- [ ] Namen anpassen
-	- [ ] Export der Datei nach Excel
+	- [x] Export der Datei nach Excel
 - [ ] HTML
 	- [ ] Waldorf Logo einbauen
 	- [ ] Look and Feel ? Von Seite zu bekommen?

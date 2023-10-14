@@ -12,7 +12,7 @@ class PersonTable(tables.Table):
         model = Person
        #managed = True
         template_name = "django_tables2/bootstrap.html"
-        fields = ["id","vorname", "nachname","klasse","anmeldung","verlassen"]
+        fields = ["id","vorname", "nachname","klasse","ankunft","anmeldung","verlassen"]
 
 
 

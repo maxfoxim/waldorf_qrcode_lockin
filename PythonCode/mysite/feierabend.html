@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
 {% block page_content %}
+    <script>
+            setTimeout(function(){
+        console.log("Executed after 1 second");
+        window.location.href = 'http://localhost:8000/polls/';
+        }, 2000);
+    </script>   
 <h1>Schönen Feierabend wünsche ich allen.</h1>
 {% endblock page_content %}

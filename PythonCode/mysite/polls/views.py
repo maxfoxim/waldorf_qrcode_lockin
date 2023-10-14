@@ -8,68 +8,20 @@ from django.shortcuts import render
 from .forms import TableForm
 from polls.models import Anwesenheitsliste, Person
 import pandas as pd 
-
+from django.contrib import messages
 from django.utils import timezone
 import datetime
 import pytz
-
-import sqlite3
-from sqlite3 import Error
-def create_connection():
-    db_file="db.sqlite3"
-    conn = None
-    try:
-        conn = sqlite3.connect(db_file)
-    except Error as e:
-        print(e)
-
-    return conn
-
-
-
-def update_task(conn, task):
-    sql = ''' UPDATE polls_person
-                SET klasse = ? 
-                   WHERE id = ?'''
-    cur = conn.cursor()
-    cur.execute(sql, task)
-    conn.commit()
-
-
-def insert_task(conn, task):
-    sql = ''' CREATE INTO polls_anwesenheitsliste
-              VALUES (?,?,?,?)'''
-    cur = conn.cursor()
-    cur.execute(sql, task)
-    conn.commit()
-
 
 class PersonTableView(SingleTableView):
     model = Person
     table_class = PersonTable
     template_name = 'people.html'
 
-
 class AnwesenheitslisteView(SingleTableView):
     model = Anwesenheitsliste
     table_class = AnwesenheitenTable
     template_name = 'anwesenheiten.html'
-
-"""
-def post_edit(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            return redirect('post_detail', pk=post.pk)
-    else:
-        form = PostForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
-"""
 
 
 def ankommen_speichern(request, id):
@@ -82,9 +34,11 @@ def ankommen_speichern(request, id):
     else:
         Datum=Anwesenheitsliste(qr_id=id,ankunft=aktuelle_zeit,verlassen=aktuelle_zeit,kommentar="Test")
         Datum.save()
-    
-    print("Zeitzone Jetzt",datetime.datetime.now(pytz.timezone('Europe/Berlin')))
 
+        Person_Heutigeanmeldung=Person.objects.get(id=id)
+        Person_Heutigeanmeldung.ankunft=aktuelle_zeit
+        Person_Heutigeanmeldung.save()
+    
     #meetingData = Anwesenheitsliste.objects.all()
     Personen=Person.objects.get(id=id)
     Name=Personen.vorname
@@ -99,7 +53,10 @@ def verlassen_speichern(request, id):
     Auslogwert=Anwesenheitsliste.objects.get(qr_id=id,ankunft__day=current_day)    
     Auslogwert.verlassen=aktuelle_zeit
     Auslogwert.save()
-    print("Zeitzone Verlassen",Auslogwert.verlassen)
+    #messages.info(request, 'Erfolgreiche Nachricht')  ?
+    #print("Zeitzone Verlassen",Auslogwert.verlassen)
+    #render(request, 'hello.html', {'data': ["byebye"]})
+    return render(request, 'abschied.html', {'data': []})
 
 
 def alle_abmelden(request):
@@ -126,6 +83,7 @@ def alle_abmelden(request):
 
 def anwesenheitsliste(request):
     meetingData = Anwesenheitsliste.objects.all()
+    #messages.info(request, 'Erfolgreiche Nachricht')  
     return render(request, 'anwesenheiten.html', {'data': meetingData })
 
 
@@ -149,10 +107,8 @@ def export_excel(request):
         nachnamen .append(schueler.nachname)
         vornamen  .append(schueler.vorname)
         klasse    .append(schueler.klasse)
-
         ankunft   .append(zeile.ankunft.  strftime("%m.%d.%Y %H:%M"))
         verlassen .append(zeile.verlassen.strftime("%m.%d.%Y %H:%M"))
-
         #print(meetingData)
     print(nachnamen)
     data={"Nachnamen":nachnamen,"Vornamen":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen}
@@ -173,7 +129,7 @@ def import_excel(request):
         print("-------------")
         print("Row",row)
         print("vorname",row["Vorname"],"nachname",row["Nachname"],"klasse",row["Klasse"])
-        Personen_Stand=Person(id=index,vorname=row["Vorname"],nachname=row["Nachname"],klasse=row["Klasse"],qr_id=index)
+        Personen_Stand=Person(id=index,vorname=row["Vorname"],nachname=row["Nachname"],klasse=row["Klasse"],qr_id=index,ankunft="2023-01-01 12:00:00.000000")
     Personen_Stand.save()
     return render(request, 'excelimport.html', {'data': Personen_Stand })
 
