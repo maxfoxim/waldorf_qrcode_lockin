@@ -9,8 +9,7 @@
 	- [x] Feierabend button
 	- [x] Schülerlisten erstellen
 	- [ ] Alert Fenster wenn auf An/Abmelden gedrückt
-- [ ] Tabellen
-	- [ ] 2->3 Zeichen bei Klasse aktualisieren
+	- [ ] CSS einbauen
 - [ ] Code
 	- [ ] aufräumen
 	- [ ] Namen anpassen
@@ -21,3 +20,7 @@
 - [ ] QR-Code
 	- [ ] Kamera verbinden
 	- [ ] QR-Code erkennen
+- [ ] Tabelle
+	- [ ] Schwarz/Weiß Werte
+	- [ ] Suchfeld	
+	- [x] 2->3 Zeichen bei Klasse aktualisieren
