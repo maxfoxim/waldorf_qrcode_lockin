@@ -22,3 +22,4 @@
 	- [ ] QR-Code erkennen
 - [ ] Tabelle
 	- [ ] Schwarz/Weiß Werte
+	- [ ] Suchfeld
