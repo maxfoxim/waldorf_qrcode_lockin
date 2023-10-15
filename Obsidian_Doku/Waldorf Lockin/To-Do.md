@@ -9,6 +9,7 @@
 	- [x] Feierabend button
 	- [ ] Schülerlisten erstellen
 	- [ ] Alert Fenster wenn auf An/Abmelden gedrückt
+	- [ ] CSS einbauen
 - [ ] Code
 	- [ ] aufräumen
 	- [ ] Namen anpassen
@@ -19,3 +20,5 @@
 - [ ] QR-Code
 	- [ ] Kamera verbinden
 	- [ ] QR-Code erkennen
+- [ ] Tabelle
+	- [ ] Schwarz/Weiß Werte
