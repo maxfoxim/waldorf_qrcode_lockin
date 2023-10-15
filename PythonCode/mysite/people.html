@@ -8,7 +8,6 @@
     </head>
     <body>
         {% render_table table %}
-        <a type="button" class="block"  href="{% url 'zeitspeichernverlassen_alle'%}">Alle Abmelden</a> 
-        <a type="button" class="block"  href="{% url 'import_excel'%}">Excel Import</a> 
+        <button type="button" class="btn btn-primary" onclick="location.href='{% url 'zeitspeichernverlassen_alle' %}'">Alle Abmelden</button>
     </body>
 </html>

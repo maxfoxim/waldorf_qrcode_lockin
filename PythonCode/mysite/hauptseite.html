@@ -1,0 +1,16 @@
+{# mysite/hello.html #}
+{% load render_table from django_tables2 %}
+<!doctype html>
+
+<html>
+    <head>
+        <title>Hauptseite</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <h1>Hauptseite<br></h1>      
+        <button type="button" class="btn btn-primary" onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='{% url 'anwesenheitsliste' %}'">Anwesenheitsliste</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='{% url 'import_excel' %}'">Excel Import</button>
+    </body>
+</html>

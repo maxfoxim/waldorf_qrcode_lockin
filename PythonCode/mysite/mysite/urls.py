@@ -21,12 +21,13 @@ from polls.views import *
 
 urlpatterns = [
     #path("polls/", include("polls.urls")),
-    path("polls/", PersonTableView.as_view()),
+    path("hauptseite/",hauptseite,name="hauptseite"),
+    path("schuelerliste/", PersonTableView.as_view(),name="schuelerliste"),
     path("admin/", admin.site.urls),
     path("zeitspeichernankommen/<int:id>/"  ,ankommen_speichern, name='zeitspeichernankommen'),
     path('zeitspeichernverlassen/<int:id>/',verlassen_speichern, name='zeitspeichernverlassen'),
     path('zeitspeichernverlassen_alle/',alle_abmelden, name='zeitspeichernverlassen_alle'),
     path('exportexcel/',export_excel, name='export_excel'),
     path('importexcel/',import_excel, name='import_excel'),
-    path("anwesenheiten/",anwesenheitsliste)
+    path("anwesenheiten/",anwesenheitsliste,name="anwesenheitsliste")
 ]

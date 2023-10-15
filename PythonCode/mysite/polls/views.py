@@ -23,6 +23,9 @@ class AnwesenheitslisteView(SingleTableView):
     table_class = AnwesenheitenTable
     template_name = 'anwesenheiten.html'
 
+def hauptseite(request):
+    return render(request, 'hauptseite.html', {'data': []})
+ 
 
 def ankommen_speichern(request, id):
     aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
