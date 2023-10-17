@@ -62,7 +62,7 @@
 
 <html>
     <head>
-        <title>List of persons</title>
+        <title>Anwesenheitsliste</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
@@ -80,8 +80,11 @@
         </style>
 
         <h1>Anwesenheitsliste Übersicht</h1>
+        <button type="button" class="btn btn-info" onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
+        <button type="button" class="btn btn-info" onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
 
-        <table id="anwesenheitstabelle">
+
+        <table id="anwesenheitstabelle" class="table-striped">
             <tr>
                 <th  onclick="sortTable(0)">Name</th>
                 <th  onclick="sortTable(1)">Nachname</th>
@@ -98,8 +101,8 @@
             {% endfor %}
         </table>    
 
-        <a type="button" class="block"  href="{% url 'export_excel'%}">Excel Export</a> 
-    
+        <button type="button" class="btn btn-danger" onclick="location.href='{% url 'export_excel' %}'">Excel Export</button>
+
     </body>
 </html>
 

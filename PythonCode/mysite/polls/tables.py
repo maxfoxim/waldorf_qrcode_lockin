@@ -5,13 +5,14 @@ from django_tables2 import TemplateColumn
 
 class PersonTable(tables.Table):
     
-    anmeldung =    tables.TemplateColumn('<a href="{% url "zeitspeichernankommen" record.id%}">Anmeldung</a>',verbose_name=("Anmeldung"), orderable=False)
-    verlassen =    tables.TemplateColumn('<a href="{% url "zeitspeichernverlassen" record.id%}">Verlassen</a>', verbose_name=("Verlassen"), orderable=False)
+    anmeldung =    tables.TemplateColumn('<button type="button" class="btn btn-primary" onclick="location.href=\'{% url "zeitspeichernankommen" record.id%}\'" >Anmeldung</button>',verbose_name=("Anmeldung"), orderable=False)
+    verlassen =    tables.TemplateColumn('<button type="button" class="btn btn-warning" onclick="location.href=\'{% url "zeitspeichernverlassen" record.id%}\'">Verlassen</button>', verbose_name=("Verlassen"), orderable=False)
 
     class Meta:
         model = Person
        #managed = True
         template_name = "django_tables2/bootstrap.html"
+        attrs =  {"class":"table table-striped"}
         fields = ["id","vorname", "nachname","klasse","ankunft","anmeldung","verlassen"]
 
 

@@ -3,11 +3,17 @@
 <!doctype html>
 <html>
     <head>
-        <title>List of persons</title>
+        <title>Schülerliste</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
+
+
     <body>
+        <h1>Schülerliste</h1>
+        <button type="button" class="btn btn-info" onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
+        <button type="button" class="btn btn-info" onclick="location.href='{% url 'anwesenheitsliste' %}'">Anwesenheitsliste</button>
+
         {% render_table table %}
-        <button type="button" class="btn btn-primary" onclick="location.href='{% url 'zeitspeichernverlassen_alle' %}'">Alle Abmelden</button>
+        <button type="button" class="btn btn-danger" onclick="location.href='{% url 'zeitspeichernverlassen_alle' %}'">Alle Abmelden</button>
     </body>
 </html>
