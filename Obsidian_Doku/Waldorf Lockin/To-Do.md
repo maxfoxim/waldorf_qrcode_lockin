@@ -9,18 +9,19 @@
 	- [x] Feierabend button
 	- [x] Schülerlisten erstellen
 	- [ ] Alert Fenster wenn auf An/Abmelden gedrückt
-	- [ ] CSS einbauen
+	- [x] CSS einbauen
 - [ ] Code
 	- [ ] aufräumen
 	- [ ] Namen anpassen
 	- [x] Export der Datei nach Excel
 - [ ] HTML
-	- [ ] Waldorf Logo einbauen
+	- [x] Waldorf Logo einbauen
 	- [ ] Look and Feel ? Von Seite zu bekommen?
 - [ ] QR-Code
 	- [ ] Kamera verbinden
 	- [ ] QR-Code erkennen
 - [ ] Tabelle
-	- [ ] Schwarz/Weiß Werte
+	- [x] Schwarz/Weiß Werte
 	- [ ] Suchfeld	
+	- [ ] Sortieren bei Zeiten nicht korrekt
 	- [x] 2->3 Zeichen bei Klasse aktualisieren

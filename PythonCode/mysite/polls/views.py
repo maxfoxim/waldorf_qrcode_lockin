@@ -16,15 +16,15 @@ import pytz
 class PersonTableView(SingleTableView):
     model = Person
     table_class = PersonTable
-    template_name = 'people.html'
+    template_name = 'htmlseiten/people.html'
 
 class AnwesenheitslisteView(SingleTableView):
     model = Anwesenheitsliste
     table_class = AnwesenheitenTable
-    template_name = 'anwesenheiten.html'
+    template_name = 'htmlseiten/anwesenheiten.html'
 
 def hauptseite(request):
-    return render(request, 'hauptseite.html', {'data': []})
+    return render(request, 'htmlseiten/hauptseite.html', {'data': []})
  
 
 def ankommen_speichern(request, id):
@@ -46,7 +46,7 @@ def ankommen_speichern(request, id):
     Personen=Person.objects.get(id=id)
     Name=Personen.vorname
     print("ID ist",Name,Person)
-    return render(request, 'hello.html', {'data': [Name]})
+    return render(request, 'htmlseiten/hello.html', {'data': [Name]})
 
 
 
@@ -59,7 +59,7 @@ def verlassen_speichern(request, id):
     #messages.info(request, 'Erfolgreiche Nachricht')  ?
     #print("Zeitzone Verlassen",Auslogwert.verlassen)
     #render(request, 'hello.html', {'data': ["byebye"]})
-    return render(request, 'abschied.html', {'data': []})
+    return render(request, 'htmlseiten/abschied.html', {'data': []})
 
 
 def alle_abmelden(request):
@@ -79,7 +79,7 @@ def alle_abmelden(request):
             Zeile.save()
         else:
             print("Einzeln ausgeloggt")
-    return render(request, 'feierabend.html', {'data': None })
+    return render(request, 'htmlseiten/feierabend.html', {'data': None })
 
 
 
@@ -87,7 +87,7 @@ def alle_abmelden(request):
 def anwesenheitsliste(request):
     meetingData = Anwesenheitsliste.objects.all()
     #messages.info(request, 'Erfolgreiche Nachricht')  
-    return render(request, 'anwesenheiten.html', {'data': meetingData })
+    return render(request, 'htmlseiten/anwesenheiten.html', {'data': meetingData })
 
 
 
@@ -119,7 +119,7 @@ def export_excel(request):
     df1.to_excel("output.xlsx",index=False)  
 
     data=[]
-    return render(request, 'excelexport.html', {'data': data })
+    return render(request, 'htmlseiten/excelexport.html', {'data': data })
 
 
 def import_excel(request):
@@ -134,7 +134,7 @@ def import_excel(request):
         print("vorname",row["Vorname"],"nachname",row["Nachname"],"klasse",row["Klasse"])
         Personen_Stand=Person(id=index,vorname=row["Vorname"],nachname=row["Nachname"],klasse=row["Klasse"],qr_id=index,ankunft="2023-01-01 12:00:00.000000")
     Personen_Stand.save()
-    return render(request, 'excelimport.html', {'data': Personen_Stand })
+    return render(request, 'htmlseiten/excelimport.html', {'data': Personen_Stand })
 
 
 """

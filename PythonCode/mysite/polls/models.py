@@ -13,6 +13,9 @@ class Person(models.Model):
     ankunft =  models.DateTimeField(verbose_name="Ankunft",default=0)
     qr_id  =   models.IntegerField(default=1)
 
+    def __str__(self):
+        return (self.id,self.vorname, self.nachname)
+
 class Anwesenheitsliste(models.Model):
     #id =          models.IntegerField(primary_key=True)
     #qr_id  =      models.IntegerField(default=0)

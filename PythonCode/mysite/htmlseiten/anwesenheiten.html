@@ -1,4 +1,5 @@
 {# mysite/anwesenheiten.html #}
+{% extends "htmlseiten/base.html" %}
 {% load render_table from django_tables2 %}
 
 <!doctype html>
@@ -60,50 +61,49 @@
     }
 </script>
 
-<html>
-    <head>
-        <title>Anwesenheitsliste</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    </head>
-    <body>
-        <style>
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-            td,
-            th {
-                border: 1px solid #3347b9;
-                text-align: left;
-                padding: 8px;
-            }
-        </style>
+{% block title %}Personenliste Schulclub{% endblock title %}
 
-        <h1>Anwesenheitsliste Übersicht</h1>
-        <button type="button" class="btn btn-info" onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
-        <button type="button" class="btn btn-info" onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
+{% block page_content %}
+<style>
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+  td,
+  th {
+      border: 1px solid #3347b9;
+      text-align: left;
+      padding: 8px;
+  }
+</style>
+
+<h1>Anwesenheitsliste Übersicht</h1>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
 
 
-        <table id="anwesenheitstabelle" class="table-striped">
-            <tr>
-                <th  onclick="sortTable(0)">Name</th>
-                <th  onclick="sortTable(1)">Nachname</th>
-                <th  onclick="sortTable(2)">Angekommen</th>
-                <th  onclick="sortTable(3)">Verlassen</th>
-            </tr>
-            {% for x in data %}
-            <tr>
-                <td>{{x.qr.vorname }}</td>
-                <td>{{x.qr.nachname }}</td>
-                <td>{{x.ankunft}}</td>
-                <td>{{x.verlassen }}</td>
-            </tr>
-            {% endfor %}
-        </table>    
+<table id="anwesenheitstabelle" class="table-striped">
+  <tr>
+      <th  onclick="sortTable(0)">Name</th>
+      <th  onclick="sortTable(1)">Nachname</th>
+      <th  onclick="sortTable(2)">Angekommen</th>
+      <th  onclick="sortTable(3)">Verlassen</th>
+  </tr>
+  {% for x in data %}
+  <tr>
+      <td>{{x.qr.vorname }}</td>
+      <td>{{x.qr.nachname }}</td>
+      <td>{{x.ankunft}}</td>
+      <td>{{x.verlassen }}</td>
+  </tr>
+  {% endfor %}
+</table>    
 
-        <button type="button" class="btn btn-danger" onclick="location.href='{% url 'export_excel' %}'">Excel Export</button>
+<button type="button" class="btn btn-danger" onclick="location.href='{% url 'export_excel' %}'">Excel Export</button>
 
-    </body>
-</html>
+
+{% endblock page_content %}
+
+
 
 
