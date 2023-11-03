@@ -30,10 +30,12 @@ def hauptseite(request):
 def ankommen_speichern(request, id):
     aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
+    current_month = timezone.now().month
+
     # nach ID und aktuellem Tag filtern --> gibt Liste zurück
-    Bereits_Eingeloggt=Anwesenheitsliste.objects.filter(qr_id=id).filter(ankunft__day=current_day).values_list("ankunft")
+    Bereits_Eingeloggt=Anwesenheitsliste.objects.filter(qr_id=id).filter(ankunft__day=current_day).filter(ankunft__month=current_month).values_list("ankunft")
     if len(Bereits_Eingeloggt)>0: # Bereits ein Eintrag vorhanden
-        pass
+        print("Eintrag bereits vorhanden.")
     else:
         Datum=Anwesenheitsliste(qr_id=id,ankunft=aktuelle_zeit,verlassen=aktuelle_zeit,kommentar="Test")
         Datum.save()

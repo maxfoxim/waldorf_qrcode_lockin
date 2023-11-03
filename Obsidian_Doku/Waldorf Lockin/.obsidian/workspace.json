@@ -71,6 +71,16 @@
             }
           },
           {
+            "id": "bad21e9aa17d897a",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.4.16"
+              }
+            }
+          },
+          {
             "id": "26dab2338b1bb814",
             "type": "leaf",
             "state": {
@@ -83,7 +93,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -210,7 +220,7 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "f0a5e46dd96076fc",
+  "active": "bad21e9aa17d897a",
   "lastOpenFiles": [
     "CSS.md",
     "VS Code.md",
