@@ -55,7 +55,9 @@ def ankommen_speichern(request, id):
 def verlassen_speichern(request, id):
     aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
-    Auslogwert=Anwesenheitsliste.objects.get(qr_id=id,ankunft__day=current_day)    
+    current_month = timezone.now().month
+
+    Auslogwert=Anwesenheitsliste.objects.get(qr_id=id,ankunft__day=current_day,ankunft__month=current_month)    
     Auslogwert.verlassen=aktuelle_zeit
     Auslogwert.save()
     #messages.info(request, 'Erfolgreiche Nachricht')  ?
