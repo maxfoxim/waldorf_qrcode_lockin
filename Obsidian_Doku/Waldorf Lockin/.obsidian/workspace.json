@@ -35,36 +35,21 @@
             "id": "60d235316a0d96f3",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Unbenannt.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": 0
-                }
-              }
-            }
-          },
-          {
-            "id": "976fcd6e26ab861b",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "VS Code.md",
+                "file": "To-Do.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "f0a5e46dd96076fc",
+            "id": "d7ab2794640b8fe0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS.md",
+                "file": "To-Do.md",
                 "mode": "source",
                 "source": false
               }
@@ -83,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -149,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS.md",
+                "file": "To-Do.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -166,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS.md",
+                "file": "To-Do.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -189,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS.md"
+                "file": "To-Do.md"
               }
             }
           }
@@ -210,18 +195,18 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "f0a5e46dd96076fc",
+  "active": "d7ab2794640b8fe0",
   "lastOpenFiles": [
     "VS Code.md",
     "CSS.md",
-    "Unbenannt.canvas",
-    "To-Do.md",
-    "PythonCode/Ausführung.md",
     "Links.md",
     "PythonCode/Fehler.md",
     "Dateien",
     "Dateien/Pasted image 20231003203315.png",
+    "PythonCode/Ausführung.md",
+    "To-Do.md",
     "Oberfläche Design.md",
+    "Unbenannt.canvas",
     "Datenbank.md",
     "Detailteufel.md",
     "Django Einstellungen.md",
