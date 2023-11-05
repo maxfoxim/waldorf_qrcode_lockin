@@ -1,13 +1,13 @@
 {# mysite/hello.html #}
+{% extends "htmlseiten/base.html" %}
+
 {% load render_table from django_tables2 %}
 <!doctype html>
 
-<html>
-    <head>
-        <title>Personenliste</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    </head>
-    <body>
+{% block title %}Personenliste{% endblock title %}
+
+{% block page_content %}
+
         <h1>Hallo  {% for x in data %}{{x}} {% endfor %}<br></h1>   
         <script>
             setTimeout(function(){
@@ -15,5 +15,4 @@
                 window.location.href = 'http://localhost:8000/schuelerliste/';
             }, 2000);
         </script>     
-    </body>
-</html>
+    {% endblock page_content %}

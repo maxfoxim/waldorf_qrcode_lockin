@@ -1,19 +1,16 @@
 {# mysite/people.html #}
+{% extends "htmlseiten/base.html" %}
+
 {% load render_table from django_tables2 %}
-<!doctype html>
-<html>
-    <head>
-        <title>Schülerliste</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    </head>
 
+{% block title %}Schülerliste{% endblock title %}
 
-    <body>
+    {% block page_content %}
+
         <h1>Schülerliste</h1>
         <button type="button" class="btn btn-info" onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
         <button type="button" class="btn btn-info" onclick="location.href='{% url 'anwesenheitsliste' %}'">Anwesenheitsliste</button>
 
         {% render_table table %}
         <button type="button" class="btn btn-danger" onclick="location.href='{% url 'zeitspeichernverlassen_alle' %}'">Alle Abmelden</button>
-    </body>
-</html>
+    {% endblock page_content %}

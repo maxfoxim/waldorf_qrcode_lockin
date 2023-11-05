@@ -56,6 +56,18 @@
             }
           },
           {
+            "id": "f0a5e46dd96076fc",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "file": "CSS.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "26dab2338b1bb814",
             "type": "leaf",
             "state": {
@@ -68,7 +80,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -134,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "To-Do.md",
+                "file": "CSS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -174,7 +186,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "To-Do.md"
+                "file": "CSS.md"
               }
             }
           }
@@ -195,10 +207,14 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "d7ab2794640b8fe0",
+  "active": "f0a5e46dd96076fc",
   "lastOpenFiles": [
+    "CSS.md",
     "VS Code.md",
     "CSS.md",
+    "Unbenannt.canvas",
+    "To-Do.md",
+    "PythonCode/Ausführung.md",
     "Links.md",
     "PythonCode/Fehler.md",
     "Dateien",
