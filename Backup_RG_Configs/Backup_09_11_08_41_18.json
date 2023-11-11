@@ -1,0 +1,1411 @@
+{
+    "$timestamp": "2023-11-09T07:41:18.2786812Z",
+    "modules": {
+        "rfcreader": {
+            "configuration": {
+                "$timestamp": "2023-11-09T07:40:56.3566902Z",
+                "$version": 72
+            }
+        },
+        "mustache": {
+            "configuration": {
+                "$timestamp": "2023-11-09T07:40:56.3574745Z",
+                "$version": 72
+            }
+        },
+        "splunk": {
+            "configuration": {
+                "$timestamp": "2023-11-09T07:40:56.3577398Z",
+                "$version": 72
+            }
+        },
+        "center": {
+            "configuration": {
+                "$timestamp": "2023-11-09T07:40:56.3593461Z",
+                "$version": 72
+            }
+        },
+        "opcuaserver": {
+            "configuration": {
+                "$timestamp": "2023-11-09T07:40:56.3600239Z",
+                "$version": 72
+            }
+        },
+        "streamprocessor": {
+            "configuration": {
+                "$messageInputs": {
+                    "OPCUA_SD_GroupState": "streamprocessor",
+                    "OPCUA_SD_GroupMonitoring": "streamprocessor",
+                    "OPCUA_SD_GroupPosition": "streamprocessor",
+                    "OPCUA_SD_GroupPositionZE10": "streamprocessor",
+                    "OPCUA_SD_GroupSetup": "streamprocessor",
+                    "OPCUA_SD_Groupprocesses": "streamprocessor",
+                    "OPCUA_SD_GroupSetupE10": "streamprocessor",
+                    "OPCUA_E10_GroupState": "streamprocessor"
+                },
+                "$messageOutputs": {
+                    "outDedup": "raw_e10",
+                    "outAggregator": "raw_sd"
+                },
+                "configuration": {
+                    "inputs": {
+                        "ExpressionEvaluatorSDInputGroupState": {
+                            "sourceRegEx": "OPCUA",
+                            "scopeRegEx": "OPCUA_SD_GroupState",
+                            "into": [
+                                "ExpressionEvaluatorGroupState"
+                            ]
+                        },
+                        "ExpressionEvaluatorSDInputGroupMonitoring": {
+                            "sourceRegEx": "OPCUA",
+                            "scopeRegEx": "OPCUA_SD_GroupMonitoring",
+                            "into": [
+                                "ExpressionEvaluatorGroupMonitoring"
+                            ]
+                        },
+                        "ExpressionEvaluatorSDInputGroupPosition": {
+                            "sourceRegEx": "OPCUA",
+                            "scopeRegEx": "OPCUA_SD_GroupPosition",
+                            "into": [
+                                "ExpressionEvaluatorGroupPosition"
+                            ]
+                        },
+                        "FilterSDInputGroupPositionZE10": {
+                            "sourceRegEx": "OPCUA",
+                            "scopeRegEx": "OPCUA_SD_GroupPositionZE10",
+                            "into": [
+                                "FilterGroupPositionZE10"
+                            ]
+                        },
+                        "ExpressionEvaluatorSDInputGroupSetup": {
+                            "sourceRegEx": "OPCUA",
+                            "scopeRegEx": "OPCUA_SD_GroupSetup",
+                            "into": [
+                                "ExpressionEvaluatorGroupSetup"
+                            ]
+                        },
+                        "ExpressionEvaluatorSDInputGroupprocesses": {
+                            "sourceRegEx": "OPCUA",
+                            "scopeRegEx": "OPCUA_SD_Groupprocesses",
+                            "into": [
+                                "ExpressionEvaluatorGroupprocesses"
+                            ]
+                        },
+                        "FilterSDInputGroupSetupE10": {
+                            "sourceRegEx": "OPCUA",
+                            "scopeRegEx": "OPCUA_SD_GroupSetupE10",
+                            "into": [
+                                "FilterGroupSetupE10"
+                            ]
+                        },
+                        "RuleEngineE10Input": {
+                            "sourceRegEx": "OPCUA",
+                            "scopeRegEx": "OPCUA_E10_GroupState",
+                            "into": [
+                                "RuleEngineE10"
+                            ]
+                        }
+                    },
+                    "blocks": {
+                        "RuleEngineE10": {
+                            "type": "RuleEngine",
+                            "context": {
+                                "timer": "false",
+                                "noStandby": "false"
+                            },
+                            "ruleSets": {},
+                            "defaultRuleSet": {
+                                "rules": {
+                                    "Rule-1": {
+                                        "context": {
+                                            "timer": "false",
+                                            "noStandby": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(header_normalTimerExpired11 == true && context_noStandby == false)"
+                                    },
+                                    "Rule-2": {
+                                        "context": {
+                                            "timer": "false",
+                                            "noStandby": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(header_normalTimerExpired1 == true && context_noStandby == false)"
+                                    },
+                                    "Rule-3": {
+                                        "context": {
+                                            "timer": "false",
+                                            "noStandby": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(header_normalTimerExpired3 == true && context_noStandby == false)"
+                                    },
+                                    "Rule-4": {
+                                        "context": {
+                                            "timer": "false",
+                                            "noStandby": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(header_normalTimerExpired9 == true && context_noStandby == false)"
+                                    },
+                                    "Rule-5": {
+                                        "context": {
+                                            "timer": "false",
+                                            "noStandby": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(header_normalTimerExpired10 == true && context_noStandby == false)"
+                                    },
+                                    "Rule-6": {
+                                        "context": {
+                                            "timer": "false",
+                                            "noStandby": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(header_normalTimerExpired2 == true && context_noStandby == false)"
+                                    },
+                                    "Rule-7": {
+                                        "context": {
+                                            "timer": "false",
+                                            "noStandby": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(header_normalTimerExpired4 == true && context_noStandby == false)"
+                                    },
+                                    "Rule-8": {
+                                        "context": {
+                                            "timer": "false",
+                                            "noStandby": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(header_normalTimerExpired5 == true && context_noStandby == false)"
+                                    },
+                                    "Rule-9": {
+                                        "context": {
+                                            "timer": "false",
+                                            "noStandby": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(header_normalTimerExpired6 == true && context_noStandby == false)"
+                                    },
+                                    "Rule-10": {
+                                        "context": {
+                                            "timer": "false",
+                                            "noStandby": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(header_normalTimerExpired7 == true && context_noStandby == false)"
+                                    },
+                                    "Rule-11": {
+                                        "context": {
+                                            "timer": "false",
+                                            "noStandby": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(header_normalTimerExpired8 == true && context_noStandby == false)"
+                                    },
+                                    "Rule-12": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "ProductiveReguläreProduktion",
+                                        "condition": "(body_OPCUA_E10_AutomaticModeActive == true && body_OPCUA_E10_DoorMainClosed == true && body_OPCUA_E10_ProgramRunning == true && body_OPCUA_E10_CoolantActive == true && body_OPCUA_E10_PositionZAxisE10 < 458 && body_OPCUA_E10_WerkzeugAbrichten == false && body_OPCUA_E10_Override > 90 && context_timer == false)"
+                                    },
+                                    "Rule-13": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "ProductiveRüstenNormalTimer11",
+                                        "condition": "(body_OPCUA_E10_MachineSetupActive == true && context_timer == false)"
+                                    },
+                                    "Rule-14": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "ProductiveWartenAufMessungNormalTimer1",
+                                        "condition": "(body_OPCUA_E10_DoorMainClosed == false && body_OPCUA_E10_ProgramRunning == false && body_OPCUA_E10_ActualSpeedToolE10 == 0 && body_OPCUA_E10_PositionZAxisE10 > 460 && context_timer == false)"
+                                    },
+                                    "Rule-15": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "ProductiveIn-SituMessungNormalTimer3",
+                                        "condition": "(body_OPCUA_E10_ProgramRunning == true && body_OPCUA_E10_MeasurementToolActive == true && context_timer == false)"
+                                    },
+                                    "Rule-16": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "ProductiveWerkzeugAbrichtenNormalTimer9",
+                                        "condition": "(body_OPCUA_E10_DoorMainClosed == true && body_OPCUA_E10_ProgramRunning == true && body_OPCUA_E10_CoolantActive == true && body_OPCUA_E10_WerkzeugAbrichten == true && context_timer == false)"
+                                    },
+                                    "Rule-17": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "Scheduled_DownVorwärmenNormalTimer10",
+                                        "condition": "(body_OPCUA_E10_DoorMainClosed == true && body_OPCUA_E10_ProgramRunning == true && body_OPCUA_E10_CoolantActive == true && body_OPCUA_E10_Warmlauf == true && context_timer == false)"
+                                    },
+                                    "Rule-18": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "ProductiveWartenAufProduktionsprozessNormalTimer2",
+                                        "condition": "(body_OPCUA_E10_DoorMainClosed == true && body_OPCUA_E10_ProgramRunning == false && body_OPCUA_E10_ActualSpeedToolE10 == 0 && body_OPCUA_E10_PositionZAxisE10 > 460 && context_timer == false)"
+                                    },
+                                    "Rule-19": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "ProductiveWartetImProgrammzyklusNormalTimer4",
+                                        "condition": "(body_OPCUA_E10_AutomaticModeActive == true && body_OPCUA_E10_DoorMainClosed == true && body_OPCUA_E10_ProgramRunning == true && body_OPCUA_E10_CoolantActive == true && (body_OPCUA_E10_ActualSpeedToolE10 >= 3600 && body_OPCUA_E10_ActualSpeedToolE10 <= 3660) && body_OPCUA_E10_PositionZAxisE10 > 460 && context_timer == false)"
+                                    },
+                                    "Rule-20": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "ProductiveWartetImProgrammzyklusNormalTimer4",
+                                        "condition": "(body_OPCUA_E10_AutomaticModeActive == true && body_OPCUA_E10_DoorMainClosed == true && body_OPCUA_E10_ProgramRunning == true && body_OPCUA_E10_CoolantActive == true && body_OPCUA_E10_ActualSpeedToolE10 =(-3600)-(-3660) && body_OPCUA_E10_PositionZAxisE10 > 460 && context_timer == false)"
+                                    },
+                                    "Rule-21": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "ProductiveWartetImProgrammzyklusNormalTimer4",
+                                        "condition": "(body_OPCUA_E10_AutomaticModeActive == true && body_OPCUA_E10_DoorMainClosed == true && body_OPCUA_E10_ProgramRunning == true && body_OPCUA_E10_CoolantActive == true && (body_OPCUA_E10_ActualSpeedToolE10 >= 2040 && body_OPCUA_E10_ActualSpeedToolE10 <= 2100) && body_OPCUA_E10_PositionZAxisE10 > 460 && context_timer == false)"
+                                    },
+                                    "Rule-22": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "ProductiveWartetImProgrammzyklusNormalTimer4",
+                                        "condition": "(body_OPCUA_E10_AutomaticModeActive == true && body_OPCUA_E10_DoorMainClosed == true && body_OPCUA_E10_ProgramRunning == true && body_OPCUA_E10_CoolantActive == true && body_OPCUA_E10_ActualSpeedToolE10 =(-2040)-(-2100) && body_OPCUA_E10_PositionZAxisE10 > 460 && context_timer == false)"
+                                    },
+                                    "Rule-23": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "ProductiveWartetImProgrammzyklusNormalTimer8_Ln12",
+                                        "condition": "(body_OPCUA_E10_AutomaticModeActive == true && body_OPCUA_E10_DoorMainClosed == true && body_OPCUA_E10_ProgramRunning == false && body_OPCUA_E10_CoolantActive == false && context_timer == false)"
+                                    },
+                                    "Rule-24": {
+                                        "context": {
+                                            "timer": "false"
+                                        },
+                                        "into": [
+                                            "Router",
+                                            "outRuleEngine"
+                                        ],
+                                        "messageTemplate": "StandbyStandbyKeinMitarbeiter(Allgemein)",
+                                        "condition": "(context_noStandby == false)"
+                                    }
+                                }
+                            },
+                            "messageTemplates": {
+                                "ProductiveReguläreProduktion": {
+                                    "body": {
+                                        "state": "'Productive'",
+                                        "reason": "'5-1-001-0000'",
+                                        "timestamp": "DateTimeNowUtc()",
+                                        "description": "body_description",
+                                        "code": "body_code"
+                                    }
+                                },
+                                "ProductiveRüstenNormalTimer11": {
+                                    "header": {
+                                        "normalTimerStart11": "true"
+                                    },
+                                    "body": {
+                                        "state": "'Productive'",
+                                        "reason": "'3-1-001-0001'",
+                                        "timestamp": "DateTimeNowUtc()",
+                                        "description": "body_description",
+                                        "code": "body_code"
+                                    }
+                                },
+                                "ProductiveWartenAufMessungNormalTimer1": {
+                                    "header": {
+                                        "normalTimerStart1": "true"
+                                    },
+                                    "body": {
+                                        "state": "'Productive'",
+                                        "reason": "'3-1-001-0021'",
+                                        "timestamp": "DateTimeNowUtc()",
+                                        "description": "body_description",
+                                        "code": "body_code"
+                                    }
+                                },
+                                "ProductiveIn-SituMessungNormalTimer3": {
+                                    "header": {
+                                        "normalTimerStart3": "true"
+                                    },
+                                    "body": {
+                                        "state": "'Productive'",
+                                        "reason": "'3-1-001-0018'",
+                                        "timestamp": "DateTimeNowUtc()",
+                                        "description": "body_description",
+                                        "code": "body_code"
+                                    }
+                                },
+                                "ProductiveWerkzeugAbrichtenNormalTimer9": {
+                                    "header": {
+                                        "normalTimerStart9": "true"
+                                    },
+                                    "body": {
+                                        "state": "'Productive'",
+                                        "reason": "'3-1-001-0026'",
+                                        "timestamp": "DateTimeNowUtc()",
+                                        "description": "body_description",
+                                        "code": "body_code"
+                                    }
+                                },
+                                "Scheduled_DownVorwärmenNormalTimer10": {
+                                    "header": {
+                                        "normalTimerStart10": "true"
+                                    },
+                                    "body": {
+                                        "state": "'Scheduled_Down'",
+                                        "reason": "'1-4-001-0007'",
+                                        "timestamp": "DateTimeNowUtc()",
+                                        "description": "body_description",
+                                        "code": "body_code"
+                                    }
+                                },
+                                "ProductiveWartenAufProduktionsprozessNormalTimer2": {
+                                    "header": {
+                                        "normalTimerStart2": "true"
+                                    },
+                                    "body": {
+                                        "state": "'Productive'",
+                                        "reason": "'3-1-001-0024'",
+                                        "timestamp": "DateTimeNowUtc()",
+                                        "description": "body_description",
+                                        "code": "body_code"
+                                    }
+                                },
+                                "ProductiveWartetImProgrammzyklusNormalTimer4": {
+                                    "header": {
+                                        "normalTimerStart4": "true",
+                                        "header_reason_ln": 8
+                                    },
+                                    "body": {
+                                        "state": "'Productive'",
+                                        "reason": "'3-1-001-0020'",
+                                        "timestamp": "DateTimeNowUtc()",
+                                        "description": "body_description",
+                                        "code": "body_code"
+                                    }
+                                },
+                                "ProductiveWartetImProgrammzyklusNormalTimer8_Ln12": {
+                                    "header": {
+                                        "normalTimerStart8": "true",
+                                        "header_reason_ln": 12
+                                    },
+                                    "body": {
+                                        "state": "'Productive'",
+                                        "reason": "'3-1-001-0020'",
+                                        "timestamp": "DateTimeNowUtc()",
+                                        "description": "body_description",
+                                        "code": "body_code"
+                                    }
+                                },
+                                "StandbyStandbyKeinMitarbeiter(Allgemein)": {
+                                    "body": {
+                                        "state": "'Standby'",
+                                        "reason": "'2-2-001-0000'",
+                                        "timestamp": "DateTimeNowUtc()",
+                                        "description": "body_description",
+                                        "code": "body_code"
+                                    }
+                                }
+                            }
+                        },
+                        "Router": {
+                            "type": "Router",
+                            "routes": {
+                                "intoAll": {
+                                    "into": [
+                                        "NormalTimer11",
+                                        "NormalTimer1",
+                                        "NormalTimer3",
+                                        "NormalTimer9",
+                                        "NormalTimer10",
+                                        "NormalTimer2",
+                                        "NormalTimer4",
+                                        "NormalTimer5",
+                                        "NormalTimer6",
+                                        "NormalTimer7",
+                                        "NormalTimer8",
+                                        "RuleEngineE10Dedup"
+                                    ],
+                                    "condition": "(true)"
+                                }
+                            }
+                        },
+                        "NormalTimer11": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10",
+                                "outNormalTimer11Unused"
+                            ],
+                            "timespan": 1200000,
+                            "OnStartEvent": {
+                                "condition": "(header_normalTimerStart11 == true)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0001' || header_normalTimerStart1 == true || header_normalTimerStart2 == true || header_normalTimerStart3 == true || header_normalTimerStart4 == true || header_normalTimerStart5 == true || header_normalTimerStart6 == true || header_normalTimerStart7 == true || header_normalTimerStart8 == true || header_normalTimerStart9 == true || header_normalTimerStart10 == true)"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendMessage",
+                                "Data": {
+                                    "Message": {
+                                        "header": {
+                                            "scope": "OPCUA_E10_GroupState",
+                                            "source": "OPCUA",
+                                            "normalTimerExpired11": true
+                                        },
+                                        "body": {}
+                                    }
+                                }
+                            }
+                        },
+                        "NormalTimer1": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10",
+                                "outNormalTimer1Unused"
+                            ],
+                            "timespan": 10000,
+                            "OnStartEvent": {
+                                "condition": "(header_normalTimerStart1 == true)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0021' || header_normalTimerStart2 == true || header_normalTimerStart3 == true || header_normalTimerStart4 == true || header_normalTimerStart5 == true || header_normalTimerStart6 == true || header_normalTimerStart7 == true || header_normalTimerStart8 == true || header_normalTimerStart9 == true || header_normalTimerStart10 == true || header_normalTimerStart11 == true)"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendMessage",
+                                "Data": {
+                                    "Message": {
+                                        "header": {
+                                            "scope": "OPCUA_E10_GroupState",
+                                            "source": "OPCUA",
+                                            "normalTimerExpired1": true
+                                        },
+                                        "body": {}
+                                    }
+                                }
+                            }
+                        },
+                        "NormalTimer3": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10",
+                                "outNormalTimer3Unused"
+                            ],
+                            "timespan": 10000,
+                            "OnStartEvent": {
+                                "condition": "(header_normalTimerStart3 == true)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0018' || header_normalTimerStart1 == true || header_normalTimerStart2 == true || header_normalTimerStart4 == true || header_normalTimerStart5 == true || header_normalTimerStart6 == true || header_normalTimerStart7 == true || header_normalTimerStart8 == true || header_normalTimerStart9 == true || header_normalTimerStart10 == true || header_normalTimerStart11 == true)"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendMessage",
+                                "Data": {
+                                    "Message": {
+                                        "header": {
+                                            "scope": "OPCUA_E10_GroupState",
+                                            "source": "OPCUA",
+                                            "normalTimerExpired3": true
+                                        },
+                                        "body": {}
+                                    }
+                                }
+                            }
+                        },
+                        "NormalTimer9": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10",
+                                "outNormalTimer9Unused"
+                            ],
+                            "timespan": 300000,
+                            "OnStartEvent": {
+                                "condition": "(header_normalTimerStart9 == true)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0026' || header_normalTimerStart1 == true || header_normalTimerStart2 == true || header_normalTimerStart3 == true || header_normalTimerStart4 == true || header_normalTimerStart5 == true || header_normalTimerStart6 == true || header_normalTimerStart7 == true || header_normalTimerStart8 == true || header_normalTimerStart10 == true || header_normalTimerStart11 == true)"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendMessage",
+                                "Data": {
+                                    "Message": {
+                                        "header": {
+                                            "scope": "OPCUA_E10_GroupState",
+                                            "source": "OPCUA",
+                                            "normalTimerExpired9": true
+                                        },
+                                        "body": {}
+                                    }
+                                }
+                            }
+                        },
+                        "NormalTimer10": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10",
+                                "outNormalTimer10Unused"
+                            ],
+                            "timespan": 1800000,
+                            "OnStartEvent": {
+                                "condition": "(header_normalTimerStart10 == true)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '1-4-001-0007' || header_normalTimerStart1 == true || header_normalTimerStart2 == true || header_normalTimerStart3 == true || header_normalTimerStart4 == true || header_normalTimerStart5 == true || header_normalTimerStart6 == true || header_normalTimerStart7 == true || header_normalTimerStart8 == true || header_normalTimerStart9 == true || header_normalTimerStart11 == true)"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendMessage",
+                                "Data": {
+                                    "Message": {
+                                        "header": {
+                                            "scope": "OPCUA_E10_GroupState",
+                                            "source": "OPCUA",
+                                            "normalTimerExpired10": true
+                                        },
+                                        "body": {}
+                                    }
+                                }
+                            }
+                        },
+                        "NormalTimer2": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10",
+                                "outNormalTimer2Unused"
+                            ],
+                            "timespan": 10000,
+                            "OnStartEvent": {
+                                "condition": "(header_normalTimerStart2 == true)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0024' || header_normalTimerStart1 == true || header_normalTimerStart3 == true || header_normalTimerStart4 == true || header_normalTimerStart5 == true || header_normalTimerStart6 == true || header_normalTimerStart7 == true || header_normalTimerStart8 == true || header_normalTimerStart9 == true || header_normalTimerStart10 == true || header_normalTimerStart11 == true)"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendMessage",
+                                "Data": {
+                                    "Message": {
+                                        "header": {
+                                            "scope": "OPCUA_E10_GroupState",
+                                            "source": "OPCUA",
+                                            "normalTimerExpired2": true
+                                        },
+                                        "body": {}
+                                    }
+                                }
+                            }
+                        },
+                        "NormalTimer4": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10",
+                                "outNormalTimer4Unused"
+                            ],
+                            "timespan": 10000,
+                            "OnStartEvent": {
+                                "condition": "(header_normalTimerStart4 == true)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0020' || header_normalTimerStart1 == true || header_normalTimerStart2 == true || header_normalTimerStart3 == true || header_normalTimerStart5 == true || header_normalTimerStart6 == true || header_normalTimerStart7 == true || header_normalTimerStart8 == true || header_normalTimerStart9 == true || header_normalTimerStart10 == true || header_normalTimerStart11 == true)"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendMessage",
+                                "Data": {
+                                    "Message": {
+                                        "header": {
+                                            "scope": "OPCUA_E10_GroupState",
+                                            "source": "OPCUA",
+                                            "normalTimerExpired4": true
+                                        },
+                                        "body": {}
+                                    }
+                                }
+                            }
+                        },
+                        "NormalTimer5": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10",
+                                "outNormalTimer5Unused"
+                            ],
+                            "timespan": 10000,
+                            "OnStartEvent": {
+                                "condition": "(header_normalTimerStart5 == true)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0020' || header_normalTimerStart1 == true || header_normalTimerStart2 == true || header_normalTimerStart3 == true || header_normalTimerStart4 == true || header_normalTimerStart6 == true || header_normalTimerStart7 == true || header_normalTimerStart8 == true || header_normalTimerStart9 == true || header_normalTimerStart10 == true || header_normalTimerStart11 == true)"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendMessage",
+                                "Data": {
+                                    "Message": {
+                                        "header": {
+                                            "scope": "OPCUA_E10_GroupState",
+                                            "source": "OPCUA",
+                                            "normalTimerExpired5": true
+                                        },
+                                        "body": {}
+                                    }
+                                }
+                            }
+                        },
+                        "NormalTimer6": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10",
+                                "outNormalTimer6Unused"
+                            ],
+                            "timespan": 600000,
+                            "OnStartEvent": {
+                                "condition": "(header_normalTimerStart6 == true)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0020' || header_normalTimerStart1 == true || header_normalTimerStart2 == true || header_normalTimerStart3 == true || header_normalTimerStart4 == true || header_normalTimerStart5 == true || header_normalTimerStart7 == true || header_normalTimerStart8 == true || header_normalTimerStart9 == true || header_normalTimerStart10 == true || header_normalTimerStart11 == true)"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendMessage",
+                                "Data": {
+                                    "Message": {
+                                        "header": {
+                                            "scope": "OPCUA_E10_GroupState",
+                                            "source": "OPCUA",
+                                            "normalTimerExpired6": true
+                                        },
+                                        "body": {}
+                                    }
+                                }
+                            }
+                        },
+                        "NormalTimer7": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10",
+                                "outNormalTimer7Unused"
+                            ],
+                            "timespan": 600000,
+                            "OnStartEvent": {
+                                "condition": "(header_normalTimerStart7 == true)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0020' || header_normalTimerStart1 == true || header_normalTimerStart2 == true || header_normalTimerStart3 == true || header_normalTimerStart4 == true || header_normalTimerStart5 == true || header_normalTimerStart6 == true || header_normalTimerStart8 == true || header_normalTimerStart9 == true || header_normalTimerStart10 == true || header_normalTimerStart11 == true)"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendMessage",
+                                "Data": {
+                                    "Message": {
+                                        "header": {
+                                            "scope": "OPCUA_E10_GroupState",
+                                            "source": "OPCUA",
+                                            "normalTimerExpired7": true
+                                        },
+                                        "body": {}
+                                    }
+                                }
+                            }
+                        },
+                        "NormalTimer8": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10",
+                                "outNormalTimer8Unused"
+                            ],
+                            "timespan": 600000,
+                            "OnStartEvent": {
+                                "condition": "(header_normalTimerStart8 == true)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0020' || header_normalTimerStart1 == true || header_normalTimerStart2 == true || header_normalTimerStart3 == true || header_normalTimerStart4 == true || header_normalTimerStart5 == true || header_normalTimerStart6 == true || header_normalTimerStart7 == true || header_normalTimerStart9 == true || header_normalTimerStart10 == true || header_normalTimerStart11 == true)"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendMessage",
+                                "Data": {
+                                    "Message": {
+                                        "header": {
+                                            "scope": "OPCUA_E10_GroupState",
+                                            "source": "OPCUA",
+                                            "normalTimerExpired8": true
+                                        },
+                                        "body": {}
+                                    }
+                                }
+                            }
+                        },
+                        "DelayTimer_ProductiveReguläreProduktion": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10DelayTimerDedup"
+                            ],
+                            "timespan": 1000,
+                            "OnStartEvent": {
+                                "condition": "(body_reason == '5-1-001-0000')"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '5-1-001-0000')"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendStartMessage"
+                            }
+                        },
+                        "DelayTimerNormal_ProductiveRüsten": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10DelayTimerDedup"
+                            ],
+                            "timespan": 1000,
+                            "OnStartEvent": {
+                                "condition": "(body_reason == '3-1-001-0001')"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0001')"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendStartMessage"
+                            }
+                        },
+                        "DelayTimerNormal_ProductiveWartenAufMessung": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10DelayTimerDedup"
+                            ],
+                            "timespan": 1000,
+                            "OnStartEvent": {
+                                "condition": "(body_reason == '3-1-001-0021')"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0021')"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendStartMessage"
+                            }
+                        },
+                        "DelayTimerNormal_ProductiveIn-SituMessung": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10DelayTimerDedup"
+                            ],
+                            "timespan": 1000,
+                            "OnStartEvent": {
+                                "condition": "(body_reason == '3-1-001-0018')"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0018')"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendStartMessage"
+                            }
+                        },
+                        "DelayTimerNormal_ProductiveWerkzeugAbrichten": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10DelayTimerDedup"
+                            ],
+                            "timespan": 1000,
+                            "OnStartEvent": {
+                                "condition": "(body_reason == '3-1-001-0026')"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0026')"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendStartMessage"
+                            }
+                        },
+                        "DelayTimerNormal_Scheduled_DownVorwärmen": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10DelayTimerDedup"
+                            ],
+                            "timespan": 1000,
+                            "OnStartEvent": {
+                                "condition": "(body_reason == '1-4-001-0007')"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '1-4-001-0007')"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendStartMessage"
+                            }
+                        },
+                        "DelayTimerNormal_ProductiveWartenAufProduktionsprozess": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10DelayTimerDedup"
+                            ],
+                            "timespan": 1000,
+                            "OnStartEvent": {
+                                "condition": "(body_reason == '3-1-001-0024')"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0024')"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendStartMessage"
+                            }
+                        },
+                        "DelayTimerNormal_ProductiveWartetImProgrammzyklus": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10DelayTimerDedup"
+                            ],
+                            "timespan": 1000,
+                            "OnStartEvent": {
+                                "condition": "(body_reason == '3-1-001-0020' && header_reason_ln == 8)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0020')"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendStartMessage"
+                            }
+                        },
+                        "DelayTimerNormal_ProductiveWartetImProgrammzyklus_Ln12": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10DelayTimerDedup"
+                            ],
+                            "timespan": 1000,
+                            "OnStartEvent": {
+                                "condition": "(body_reason == '3-1-001-0020' && header_reason_ln == 12)"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '3-1-001-0020')"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendStartMessage"
+                            }
+                        },
+                        "DelayTimer_StandbyStandbyKeinMitarbeiter(Allgemein)": {
+                            "type": "Timer",
+                            "into": [
+                                "RuleEngineE10DelayTimerDedup"
+                            ],
+                            "timespan": 1000,
+                            "OnStartEvent": {
+                                "condition": "(body_reason == '2-2-001-0000')"
+                            },
+                            "OnCancelEvent": {
+                                "condition": "(body_reason != '2-2-001-0000')"
+                            },
+                            "OnExpiredEvent": {
+                                "Type": "SendStartMessage"
+                            }
+                        },
+                        "ExpressionEvaluatorGroupState": {
+                            "type": "ExpEval",
+                            "expressions": {
+                                "OPCUA_SD_ProgramRunning": "OPCUA_SD_ProgramRunning",
+                                "OPCUA_SD_DoorMainClosed": "OPCUA_SD_DoorMainClosed",
+                                "OPCUA_SD_DoorMain2Closed": "OPCUA_SD_DoorMain2Closed",
+                                "OPCUA_SD_FootSwitchActive": "OPCUA_SD_FootSwitchActive",
+                                "OPCUA_SD_AutomaticModeActive": "OPCUA_SD_AutomaticModeActive",
+                                "OPCUA_SD_MeasurementToolActive": "OPCUA_SD_MeasurementToolActive",
+                                "OPCUA_SD_CoolantActive": "OPCUA_SD_CoolantActive",
+                                "OPCUA_SD_VacuumChuckActive": "OPCUA_SD_VacuumChuckActive",
+                                "OPCUA_SD_MachineSetupActive": "OPCUA_SD_MachineSetupActive",
+                                "OPCUA_SD_Warmlauf": "OPCUA_SD_Warmlauf",
+                                "OPCUA_SD_WerkzeugAbrichten": "OPCUA_SD_WerkzeugAbrichten"
+                            },
+                            "PreserveInputProperties": false,
+                            "into": [
+                                "outAggregator"
+                            ]
+                        },
+                        "ExpressionEvaluatorGroupMonitoring": {
+                            "type": "ExpEval",
+                            "expressions": {
+                                "OPCUA_SD_MeasurementToolBatteryOK": "OPCUA_SD_MeasurementToolBatteryOK",
+                                "OPCUA_SD_MeasurementToolBatteryError": "OPCUA_SD_MeasurementToolBatteryError",
+                                "OPCUA_SD_CoolantFlowOK": "OPCUA_SD_CoolantFlowOK",
+                                "OPCUA_SD_VacuumLow": "OPCUA_SD_VacuumLow",
+                                "OPCUA_SD_VacuumOK": "OPCUA_SD_VacuumOK",
+                                "OPCUA_SD_AxisOilLevelOK": "OPCUA_SD_AxisOilLevelOK",
+                                "OPCUA_SD_AxisOilLevelError": "OPCUA_SD_AxisOilLevelError",
+                                "OPCUA_SD_AxisOilFilterOK": "OPCUA_SD_AxisOilFilterOK",
+                                "OPCUA_SD_AxisOilFilterError": "OPCUA_SD_AxisOilFilterError",
+                                "OPCUA_SD_AxisGasPressureOK": "OPCUA_SD_AxisGasPressureOK",
+                                "OPCUA_SD_AxisOilPressureOK": "OPCUA_SD_AxisOilPressureOK",
+                                "OPCUA_SD_AxisOilTemperatureOK": "OPCUA_SD_AxisOilTemperatureOK",
+                                "OPCUA_SD_SpindleOilLevelOK": "OPCUA_SD_SpindleOilLevelOK",
+                                "OPCUA_SD_SpindleOilLevelError": "OPCUA_SD_SpindleOilLevelError",
+                                "OPCUA_SD_SpindleOilFilterOK": "OPCUA_SD_SpindleOilFilterOK",
+                                "OPCUA_SD_SpindleOilFilterError": "OPCUA_SD_SpindleOilFilterError",
+                                "OPCUA_SD_SpindleGasPressureOK": "OPCUA_SD_SpindleGasPressureOK",
+                                "OPCUA_SD_SpindleOilPressureOK": "OPCUA_SD_SpindleOilPressureOK",
+                                "OPCUA_SD_SpindleOilTemperatureOK": "OPCUA_SD_SpindleOilTemperatureOK",
+                                "OPCUA_SD_SpindleOilReservoirPressureOK": "OPCUA_SD_SpindleOilReservoirPressureOK",
+                                "OPCUA_SD_AxisError": "OPCUA_SD_AxisError"
+                            },
+                            "PreserveInputProperties": false,
+                            "into": [
+                                "outAggregator"
+                            ]
+                        },
+                        "ExpressionEvaluatorGroupPosition": {
+                            "type": "ExpEval",
+                            "expressions": {
+                                "OPCUA_SD_PositionXAxis": "OPCUA_SD_PositionXAxis*0.001",
+                                "OPCUA_SD_PositionYAxis": "OPCUA_SD_PositionYAxis*0.001",
+                                "OPCUA_SD_PositionZAxis": "OPCUA_SD_PositionZAxis*0.001",
+                                "OPCUA_SD_PositionSpindle1": "OPCUA_SD_PositionSpindle1*0.001",
+                                "OPCUA_SD_PositionSpindle2": "OPCUA_SD_PositionSpindle2*0.001"
+                            },
+                            "PreserveInputProperties": false,
+                            "into": [
+                                "outAggregator"
+                            ]
+                        },
+                        "ExpressionEvaluatorGroupPositionZE10": {
+                            "type": "ExpEval",
+                            "expressions": {
+                                "OPCUA_SD_PositionZAxisE10": "OPCUA_SD_PositionZAxisE10*0.001"
+                            },
+                            "PreserveInputProperties": false,
+                            "into": [
+                                "outAggregator"
+                            ]
+                        },
+                        "ExpressionEvaluatorGroupSetup": {
+                            "type": "ExpEval",
+                            "expressions": {
+                                "OPCUA_SD_Override": "OPCUA_SD_Override*0.01",
+                                "OPCUA_SD_ActualSpeedPart": "OPCUA_SD_ActualSpeedPart*0.01666667",
+                                "OPCUA_SD_ActualSpeedTool": "OPCUA_SD_ActualSpeedTool*0.01666667",
+                                "OPCUA_SD_TargetSpeedTool": "OPCUA_SD_TargetSpeedTool*0.01666667",
+                                "OPCUA_SD_TargetSpeedPart": "OPCUA_SD_TargetSpeedPart*0.01666667"
+                            },
+                            "PreserveInputProperties": false,
+                            "into": [
+                                "outAggregator"
+                            ]
+                        },
+                        "ExpressionEvaluatorGroupprocesses": {
+                            "type": "ExpEval",
+                            "expressions": {
+                                "OPCUA_SD_CurrentProcessTime": "OPCUA_SD_CurrentProcessTime"
+                            },
+                            "PreserveInputProperties": false,
+                            "into": [
+                                "outAggregator"
+                            ]
+                        },
+                        "ExpressionEvaluatorGroupSetupE10": {
+                            "type": "ExpEval",
+                            "expressions": {
+                                "OPCUA_SD_ActualSpeedToolE10": "OPCUA_SD_ActualSpeedToolE10*0.01666667"
+                            },
+                            "PreserveInputProperties": false,
+                            "into": [
+                                "outAggregator"
+                            ]
+                        },
+                        "RuleEngineE10Dedup": {
+                            "type": "Dedup",
+                            "Watch": [
+                                "reason"
+                            ],
+                            "Settings": {
+                                "OverwriteHeaderScopeWith": ""
+                            },
+                            "into": [
+                                "DelayTimer_ProductiveReguläreProduktion",
+                                "DelayTimerNormal_ProductiveRüsten",
+                                "DelayTimerNormal_ProductiveWartenAufMessung",
+                                "DelayTimerNormal_ProductiveIn-SituMessung",
+                                "DelayTimerNormal_ProductiveWerkzeugAbrichten",
+                                "DelayTimerNormal_Scheduled_DownVorwärmen",
+                                "DelayTimerNormal_ProductiveWartenAufProduktionsprozess",
+                                "DelayTimerNormal_ProductiveWartetImProgrammzyklus",
+                                "DelayTimerNormal_ProductiveWartetImProgrammzyklus_Ln12",
+                                "DelayTimer_StandbyStandbyKeinMitarbeiter(Allgemein)"
+                            ]
+                        },
+                        "RuleEngineE10DelayTimerDedup": {
+                            "type": "Dedup",
+                            "Watch": [
+                                "reason"
+                            ],
+                            "Settings": {
+                                "OverwriteHeaderScopeWith": ""
+                            },
+                            "into": [
+                                "outDedup"
+                            ],
+                            "timespan": 1000
+                        },
+                        "FilterGroupPositionZE10": {
+                            "type": "SNCFilter",
+                            "Thresholds": {
+                                "OPCUA_SD_PositionZAxisE10": 0.001
+                            },
+                            "IssueFullModel": true,
+                            "into": [
+                                "ExpressionEvaluatorGroupPositionZE10"
+                            ]
+                        },
+                        "FilterGroupSetupE10": {
+                            "type": "SNCFilter",
+                            "Thresholds": {
+                                "OPCUA_SD_ActualSpeedToolE10": 60.0
+                            },
+                            "IssueFullModel": true,
+                            "into": [
+                                "ExpressionEvaluatorGroupSetupE10"
+                            ]
+                        },
+                        "outDedup": {
+                            "type": "Output",
+                            "scope": "",
+                            "source": ""
+                        },
+                        "outAggregator": {
+                            "type": "Output",
+                            "scope": "",
+                            "source": ""
+                        }
+                    },
+                    "DefaultOutputTopic": "MDB_OUTMESSAGE"
+                },
+                "$schema": "https://schemas.robotron.de/robogate/modules/Robotron.IotEdge.Modules.StreamProcessorModule/versions/5",
+                "$timestamp": "2023-11-09T07:40:56.3627667Z",
+                "$version": 73
+            }
+        },
+        "modbus": {
+            "configuration": {
+                "$timestamp": "2023-11-09T07:40:56.3885074Z",
+                "$version": 72
+            }
+        },
+        "opcua": {
+            "configuration": {
+                "servers": {
+                    "OPCUA": {
+                        "endpoint": {
+                            "pollGroups": {},
+                            "subscriptionGroups": {
+                                "OPCUA_SD_GroupState": {
+                                    "name": "OPCUA_SD_GroupState",
+                                    "onChangeSubmitFullModel": true,
+                                    "onRepublishSubmitFullModel": false,
+                                    "nodes": {
+                                        "OPCUA_SD_ProgramRunning": "ns=2;s=/Plc/DB21.DBX35.0",
+                                        "OPCUA_SD_DoorMainClosed": "ns=2;s=/Plc/M38.6",
+                                        "OPCUA_SD_DoorMain2Closed": "ns=2;s=/Plc/M37.5",
+                                        "OPCUA_SD_FootSwitchActive": "ns=2;s=/Plc/M32.5",
+                                        "OPCUA_SD_AutomaticModeActive": "ns=2;s=/Plc/M30.0",
+                                        "OPCUA_SD_MeasurementToolActive": "ns=2;s=/Plc/M44.2",
+                                        "OPCUA_SD_CoolantActive": "ns=2;s=/Plc/M40.3",
+                                        "OPCUA_SD_VacuumChuckActive": "ns=2;s=/Plc/M67.3",
+                                        "OPCUA_SD_MachineSetupActive": "ns=2;s=/Plc/DB255.DBX25.1",
+                                        "OPCUA_SD_Warmlauf": "ns=2;s=/Plc/DB255.DBX24.6",
+                                        "OPCUA_SD_WerkzeugAbrichten": "ns=2;s=/NC/_N_NC_GD2_ACX/OT[999]"
+                                    },
+                                    "outputTopic": "OPCUA_SD_GroupState",
+                                    "publishingIntervalMs": 2000
+                                },
+                                "OPCUA_SD_GroupMonitoring": {
+                                    "name": "OPCUA_SD_GroupMonitoring",
+                                    "onChangeSubmitFullModel": true,
+                                    "onRepublishSubmitFullModel": false,
+                                    "nodes": {
+                                        "OPCUA_SD_MeasurementToolBatteryOK": "ns=2;s=/Plc/M180.6",
+                                        "OPCUA_SD_MeasurementToolBatteryError": "ns=2;s=/Plc/M215.6",
+                                        "OPCUA_SD_CoolantFlowOK": "ns=2;s=/Plc/M37.6",
+                                        "OPCUA_SD_VacuumLow": "ns=2;s=/Plc/M212.3",
+                                        "OPCUA_SD_VacuumOK": "ns=2;s=/Plc/M36.1",
+                                        "OPCUA_SD_AxisOilLevelOK": "ns=2;s=/Plc/DB2.DBX374.5",
+                                        "OPCUA_SD_AxisOilLevelError": "ns=2;s=/Plc/M210.0",
+                                        "OPCUA_SD_AxisOilFilterOK": "ns=2;s=/Plc/DB2.DBX374.7",
+                                        "OPCUA_SD_AxisOilFilterError": "ns=2;s=/Plc/M210.1",
+                                        "OPCUA_SD_AxisGasPressureOK": "ns=2;s=/Plc/M210.2",
+                                        "OPCUA_SD_AxisOilPressureOK": "ns=2;s=/Plc/M210.3",
+                                        "OPCUA_SD_AxisOilTemperatureOK": "ns=2;s=/Plc/DB2.DBX374.6",
+                                        "OPCUA_SD_SpindleOilLevelOK": "ns=2;s=/Plc/DB2.DBX374.0",
+                                        "OPCUA_SD_SpindleOilLevelError": "ns=2;s=/Plc/M47.7",
+                                        "OPCUA_SD_SpindleOilFilterOK": "ns=2;s=/Plc/DB2.DBX374.2",
+                                        "OPCUA_SD_SpindleOilFilterError": "ns=2;s=/Plc/M47.5",
+                                        "OPCUA_SD_SpindleGasPressureOK": "ns=2;s=/Plc/M47.3",
+                                        "OPCUA_SD_SpindleOilPressureOK": "ns=2;s=/Plc/M47.6",
+                                        "OPCUA_SD_SpindleOilTemperatureOK": "ns=2;s=/Plc/DB2.DBX374.1",
+                                        "OPCUA_SD_SpindleOilReservoirPressureOK": "ns=2;s=/Plc/DB2.DBX375.0",
+                                        "OPCUA_SD_AxisError": "ns=2;s=/Plc/M100.0"
+                                    },
+                                    "outputTopic": "OPCUA_SD_GroupMonitoring",
+                                    "publishingIntervalMs": 2000
+                                },
+                                "OPCUA_SD_GroupPosition": {
+                                    "name": "OPCUA_SD_GroupPosition",
+                                    "onChangeSubmitFullModel": true,
+                                    "onRepublishSubmitFullModel": false,
+                                    "nodes": {
+                                        "OPCUA_SD_PositionXAxis": "ns=2;s=/Channel/MachineAxis/measPos2[u1,1]",
+                                        "OPCUA_SD_PositionYAxis": "ns=2;s=/Channel/MachineAxis/measPos2[u1,2]",
+                                        "OPCUA_SD_PositionZAxis": "ns=2;s=/Channel/MachineAxis/measPos1[u1,3]",
+                                        "OPCUA_SD_PositionSpindle1": "ns=2;s=/Channel/MachineAxis/measPos1[u1,4]",
+                                        "OPCUA_SD_PositionSpindle2": "ns=2;s=/Channel/MachineAxis/measPos1[u1,5]"
+                                    },
+                                    "outputTopic": "OPCUA_SD_GroupPosition",
+                                    "publishingIntervalMs": 2000
+                                },
+                                "OPCUA_SD_GroupPositionZE10": {
+                                    "name": "OPCUA_SD_GroupPositionZE10",
+                                    "onChangeSubmitFullModel": true,
+                                    "onRepublishSubmitFullModel": false,
+                                    "nodes": {
+                                        "OPCUA_SD_PositionZAxisE10": "ns=2;s=/Channel/MachineAxis/measPos1[u1,3]"
+                                    },
+                                    "outputTopic": "OPCUA_SD_GroupPositionZE10",
+                                    "publishingIntervalMs": 2000
+                                },
+                                "OPCUA_SD_GroupSetup": {
+                                    "name": "OPCUA_SD_GroupSetup",
+                                    "onChangeSubmitFullModel": true,
+                                    "onRepublishSubmitFullModel": false,
+                                    "nodes": {
+                                        "OPCUA_SD_Override": "ns=2;s=/Nck/MachineAxis/aaTotalOvr",
+                                        "OPCUA_SD_ActualSpeedPart": "ns=2;s=/Nck/Spindle/actSpeed[u1,5]",
+                                        "OPCUA_SD_ActualSpeedTool": "ns=2;s=/Nck/Spindle/actSpeed[u1,4]",
+                                        "OPCUA_SD_TargetSpeedTool": "ns=2;s=/Nck/Spindle/cmdSpeed[u1,4]",
+                                        "OPCUA_SD_TargetSpeedPart": "ns=2;s=/Nck/Spindle/cmdSpeed[u1,5]"
+                                    },
+                                    "outputTopic": "OPCUA_SD_GroupSetup",
+                                    "publishingIntervalMs": 2000
+                                },
+                                "OPCUA_SD_Groupprocesses": {
+                                    "name": "OPCUA_SD_Groupprocesses",
+                                    "onChangeSubmitFullModel": true,
+                                    "onRepublishSubmitFullModel": false,
+                                    "nodes": {
+                                        "OPCUA_SD_CurrentProcessTime": "ns=2;s=/Channel/ChannelDiagnose/cycleTime"
+                                    },
+                                    "outputTopic": "OPCUA_SD_Groupprocesses",
+                                    "publishingIntervalMs": 2000
+                                },
+                                "OPCUA_SD_GroupSetupE10": {
+                                    "name": "OPCUA_SD_GroupSetupE10",
+                                    "onChangeSubmitFullModel": true,
+                                    "onRepublishSubmitFullModel": false,
+                                    "nodes": {
+                                        "OPCUA_SD_ActualSpeedToolE10": "ns=2;s=/Nck/Spindle/actSpeed[u1,4]"
+                                    },
+                                    "outputTopic": "OPCUA_SD_GroupSetupE10",
+                                    "publishingIntervalMs": 2000
+                                },
+                                "OPCUA_E10_GroupState": {
+                                    "name": "OPCUA_E10_GroupState",
+                                    "onChangeSubmitFullModel": true,
+                                    "onRepublishSubmitFullModel": false,
+                                    "nodes": {
+                                        "OPCUA_E10_AutomaticModeActive": "ns=2;s=/Plc/M30.0",
+                                        "OPCUA_E10_DoorMainClosed": "ns=2;s=/Plc/M38.6",
+                                        "OPCUA_E10_ProgramRunning": "ns=2;s=/Plc/DB21.DBX35.0",
+                                        "OPCUA_E10_CoolantActive": "ns=2;s=/Plc/M40.3",
+                                        "OPCUA_E10_MeasurementToolActive": "ns=2;s=/Plc/M44.2",
+                                        "OPCUA_E10_ActualSpeedToolE10": "ns=2;s=/Nck/Spindle/actSpeed[u1,4]",
+                                        "OPCUA_E10_PositionZAxisE10": "ns=2;s=/Channel/MachineAxis/measPos1[u1,3]",
+                                        "OPCUA_E10_Warmlauf": "ns=2;s=/Plc/DB255.DBX24.6",
+                                        "OPCUA_E10_WerkzeugAbrichten": "ns=2;s=/NC/_N_NC_GD2_ACX/OT[999]",
+                                        "OPCUA_E10_Override": "ns=2;s=/Nck/MachineAxis/aaTotalOvr",
+                                        "OPCUA_E10_MachineSetupActive": "ns=2;s=/Plc/DB255.DBX25.1"
+                                    },
+                                    "outputTopic": "OPCUA_E10_GroupState",
+                                    "publishingIntervalMs": 2000
+                                }
+                            },
+                            "subscriptions": {},
+                            "url": "opc.tcp://127.0.0.1:55555/UA/SampleServer",
+                            "resetBlackListIntervalMs": 1800000,
+                            "nodeBrowsingSelectionUI": false
+                        },
+                        "client": {
+                            "application": {
+                                "security": {
+                                    "authentication": {
+                                        "credentials": {
+                                            "username": "AUDUSER",
+                                            "password": "SUNRISE1"
+                                        },
+                                        "strategy": "Credentials"
+                                    },
+                                    "endpoint": {
+                                        "isEnabled": true,
+                                        "level": 5,
+                                        "mode": "None",
+                                        "timeout": 15000,
+                                        "policy": "None"
+                                    }
+                                }
+                            },
+                            "session": {
+                                "subscription": {}
+                            },
+                            "optimizeNodeValueReadAccess": false
+                        }
+                    }
+                },
+                "$messageOutputs": {
+                    "OPCUA.OPCUA_SD_GroupState": "OPCUA_SD_GroupState",
+                    "OPCUA.OPCUA_SD_GroupMonitoring": "OPCUA_SD_GroupMonitoring",
+                    "OPCUA.OPCUA_SD_GroupPosition": "OPCUA_SD_GroupPosition",
+                    "OPCUA.OPCUA_SD_GroupPositionZE10": "OPCUA_SD_GroupPositionZE10",
+                    "OPCUA.OPCUA_SD_GroupSetup": "OPCUA_SD_GroupSetup",
+                    "OPCUA.OPCUA_SD_Groupprocesses": "OPCUA_SD_Groupprocesses",
+                    "OPCUA.OPCUA_SD_GroupSetupE10": "OPCUA_SD_GroupSetupE10",
+                    "OPCUA.OPCUA_E10_GroupState": "OPCUA_E10_GroupState"
+                },
+                "$schema": "https://schemas.robotron.de/robogate/modules/Robotron.IotEdge.Modules.OpcUaClientModule/versions/2",
+                "$timestamp": "2023-11-09T07:40:56.3893373Z",
+                "$version": 75
+            }
+        },
+        "shellexec": {
+            "configuration": {
+                "$timestamp": "2023-11-09T07:40:56.4075133Z",
+                "$version": 72
+            }
+        },
+        "logger": {
+            "configuration": {
+                "$timestamp": "2023-11-09T07:40:56.4083725Z",
+                "$version": 72
+            }
+        },
+        "azure": {
+            "configuration": {
+                "$timestamp": "2023-11-09T07:40:56.4086506Z",
+                "$version": 72
+            }
+        },
+        "mqtt": {
+            "configuration": {
+                "$timestamp": "2023-11-09T07:40:56.4087975Z",
+                "$version": 72
+            }
+        },
+        "system": {
+            "configuration": {
+                "firewallrules": {
+                    "AdminAPIAutoRuleHTTP": {
+                        "description": "Auto generated rule from AdminApiModule for HTTP Port.",
+                        "action": "accept",
+                        "direction": "inbound",
+                        "protocol": "tcp",
+                        "srcPort": 0,
+                        "destPort": 80
+                    },
+                    "AdminAPIAutoRuleHTTPS": {
+                        "description": "Auto generated rule from AdminApiModule for HTTPS Port.",
+                        "action": "accept",
+                        "direction": "inbound",
+                        "protocol": "tcp",
+                        "srcPort": 0,
+                        "destPort": 443
+                    }
+                },
+                "$timestamp": "2023-11-09T07:40:56.4098952Z",
+                "$version": 73
+            }
+        }
+    }
+}
