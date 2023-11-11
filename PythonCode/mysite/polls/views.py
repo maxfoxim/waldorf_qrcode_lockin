@@ -12,6 +12,8 @@ from django.contrib import messages
 from django.utils import timezone
 import datetime
 import pytz
+from datetime import datetime
+import os
 
 class PersonTableView(SingleTableView):
     model = Person
@@ -28,7 +30,7 @@ def hauptseite(request):
  
 
 def ankommen_speichern(request, id):
-    aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
+    aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
     current_month = timezone.now().month
 
@@ -53,7 +55,7 @@ def ankommen_speichern(request, id):
 
 
 def verlassen_speichern(request, id):
-    aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
+    aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
     current_month = timezone.now().month
 
@@ -70,14 +72,16 @@ def alle_abmelden(request):
     """
     Alle Schüler die sich noch nicht abgemeldet haben, zusammen abmelden.
     """
-    aktuelle_zeit=datetime.datetime.now(pytz.timezone('Europe/Berlin'))
-    current_day = timezone.now().day
-    Auslogwert=Anwesenheitsliste.objects.filter(ankunft__day=current_day)    
+    aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
+    current_day =   timezone.now().day
+    current_month = timezone.now().month
+
+    Auslogwert=Anwesenheitsliste.objects.get(ankunft__day=current_day ,ankunft__month=current_month)    
     #Auslogwert.verlassen=aktuelle_zeit
     print("ALLE ABMELDEN")
     for Zeile in Auslogwert:
-        #if Zeile.verlassen==Zeile.ankunft:
-        if True:
+        if Zeile.verlassen==Zeile.ankunft:
+        #if True:
             Zeile.verlassen=aktuelle_zeit
             print(Zeile)
             Zeile.save()
@@ -95,6 +99,19 @@ def anwesenheitsliste(request):
 
 
 
+def anwesenheitsliste_tag(request):
+    #meetingData = Anwesenheitsliste.objects.all()
+    #messages.info(request, 'Erfolgreiche Nachricht')  
+    aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
+    current_day = timezone.now().day
+    current_month = timezone.now().month
+    meetingData=Anwesenheitsliste.objects.filter(ankunft__day=current_day).filter(ankunft__month=current_month)    
+    print(meetingData)
+    return render(request, 'htmlseiten/anwesenheiten_tag.html', {'data': meetingData })
+
+
+
+
 
 def export_excel(request):
     """
@@ -102,27 +119,30 @@ def export_excel(request):
     """
     anwesenheits_eintraege = Anwesenheitsliste.objects.all()
     personen = Person.objects.all()
-    print("Personen",personen)
+    print("---------------")
+    #print("Personen bei Export Excel",personen)
     vornamen=[]
     nachnamen=[]
     ankunft=[]
     verlassen=[]
     klasse=[]
-
+    differenz=[]
     for zeile in anwesenheits_eintraege:
         schueler=Person.objects.get(id=zeile.qr_id)
         nachnamen .append(schueler.nachname)
         vornamen  .append(schueler.vorname)
         klasse    .append(schueler.klasse)
-        ankunft   .append(zeile.ankunft.  strftime("%m.%d.%Y %H:%M"))
-        verlassen .append(zeile.verlassen.strftime("%m.%d.%Y %H:%M"))
-        #print(meetingData)
+        ankunft   .append(zeile.ankunft.  strftime("%d.%m.%Y %H:%M"))
+        verlassen .append(zeile.verlassen.strftime("%d.%m.%Y %H:%M"))
+        delta=(datetime.strptime(verlassen[-1],"%d.%m.%Y %H:%M")-datetime.strptime(ankunft[-1],"%d.%m.%Y %H:%M"))
+        differenz .append((delta).total_seconds()/60)
     print(nachnamen)
-    data={"Nachnamen":nachnamen,"Vornamen":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen}
-    df1 = pd.DataFrame(data,columns=['Vornamen','Nachnamen',"Klasse",'Ankunft','Verlassen'])
+    data={"Nachnamen":nachnamen,"Vornamen":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen,"DauerStunden":differenz}
+    df1 = pd.DataFrame(data,columns=['Vornamen','Nachnamen',"Klasse",'Ankunft','Verlassen','DauerStunden'])
     df1.to_excel("output.xlsx",index=False)  
 
     data=[]
+
     return render(request, 'htmlseiten/excelexport.html', {'data': data })
 
 

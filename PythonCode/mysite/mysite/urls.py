@@ -29,5 +29,7 @@ urlpatterns = [
     path('zeitspeichernverlassen_alle/',alle_abmelden, name='zeitspeichernverlassen_alle'),
     path('exportexcel/',export_excel, name='export_excel'),
     path('importexcel/',import_excel, name='import_excel'),
-    path("anwesenheiten/",anwesenheitsliste,name="anwesenheitsliste")
+    path("anwesenheiten/",anwesenheitsliste,name="anwesenheitsliste"),
+    path("anwesenheiten_tag/",anwesenheitsliste_tag,name="anwesenheitsliste_tag")
+
 ]

@@ -64,32 +64,12 @@
 {% block title %}Personenliste Schulclub{% endblock title %}
 
 {% block page_content %}
-<!--style>
-  table {
-      border-collapse: collapse;
-      width: 100%;
-  }
-  td,
-  th {
-      border: 1px solid #3347b9;
-      text-align: left;
-      padding: 8px;
-  }
-tr:nth-of-type(odd) { 
-    background: blue; 
-    }
 
-    tr:nth-of-type(even) { 
-    background: white; 
-    }
-</style-->
-
-<h1>Anwesenheitsliste Übersicht</h1>
-<button type="button" class="btn btn-info"    onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
-<button type="button" class="btn btn-info"    onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
-<button type="button" class="btn btn-primary" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
-<button type="button" class="btn btn-danger"  onclick="location.href='{% url 'export_excel' %}'">Excel Datei Erstellen</button>
-<button type="button" class="btn btn-danger"  onclick='location.href="/static/output.xlsx"' download>Download Exceldokument</button>
+<h1>Heutige Anwesenheiten</h1>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
+<button type="button" class="btn btn-danger" onclick="location.href='{% url 'export_excel' %}'">Excel Datei Erstellen</button>
+<button type="button" class="btn btn-danger" onclick='location.href="/static/output.xlsx"' download>Download Exceldokument</button>
 
 
 <table id="anwesenheitstabelle" class="table table-striped">

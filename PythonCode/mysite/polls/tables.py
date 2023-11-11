@@ -21,6 +21,8 @@ class AnwesenheitenTable(tables.Table):
     class Meta:
         model = Anwesenheitsliste
         #attrs = {'class': 'table table-sm'}
+        attrs =  {"class":"table table-striped"}
+
         template_name = "django_tables2/bootstrap.html"
         fields = ["id","qr_id", "ankunft","verlassen","kommentar"]
         #managed = True
