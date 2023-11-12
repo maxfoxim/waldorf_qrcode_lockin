@@ -78,6 +78,7 @@
       <th  onclick="sortTable(1)">Nachname</th>
       <th  onclick="sortTable(2)">Angekommen</th>
       <th  onclick="sortTable(3)">Verlassen</th>
+      <th  onclick="sortTable(4)">Aufenthaltsdauer</th>
   </tr>
   {% for x in data %}
   <tr>
@@ -85,6 +86,8 @@
       <td>{{x.qr.nachname }}</td>
       <td>{{x.ankunft}}</td>
       <td>{{x.verlassen }}</td>
+      <td>{{x.aufenthaltsdauer}}</td>
+
   </tr>
   {% endfor %}
 </table>    

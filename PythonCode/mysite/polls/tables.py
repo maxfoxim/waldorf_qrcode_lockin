@@ -24,5 +24,5 @@ class AnwesenheitenTable(tables.Table):
         attrs =  {"class":"table table-striped"}
 
         template_name = "django_tables2/bootstrap.html"
-        fields = ["id","qr_id", "ankunft","verlassen","kommentar"]
+        fields = ["id","qr_id", "ankunft","verlassen","kommentar","aufenthaltsdauer"]
         #managed = True

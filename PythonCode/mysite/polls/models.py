@@ -19,8 +19,10 @@ class Person(models.Model):
 class Anwesenheitsliste(models.Model):
     #id =          models.IntegerField(primary_key=True)
     #qr_id  =      models.IntegerField(default=0)
-    ankunft   =   models.DateTimeField(verbose_name="Ankunft")
-    verlassen =   models.DateTimeField(verbose_name="Verlassen")
-    kommentar =   models.CharField(max_length=100,   verbose_name="Kommentar")
-    qr =          models.ForeignKey(Person,on_delete=models.CASCADE)
+    ankunft          =   models.DateTimeField(verbose_name="Ankunft")
+    verlassen        =   models.DateTimeField(verbose_name="Verlassen")
+    aufenthaltsdauer =   models.FloatField(verbose_name="Aufenthaltsdauer")
+
+    kommentar        =   models.CharField(max_length=100,   verbose_name="Kommentar")
+    qr               =   models.ForeignKey(Person,on_delete=models.CASCADE)
 

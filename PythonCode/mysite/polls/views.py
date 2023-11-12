@@ -39,7 +39,7 @@ def ankommen_speichern(request, id):
     if len(Bereits_Eingeloggt)>0: # Bereits ein Eintrag vorhanden
         print("Eintrag bereits vorhanden.")
     else:
-        Datum=Anwesenheitsliste(qr_id=id,ankunft=aktuelle_zeit,verlassen=aktuelle_zeit,kommentar="Test")
+        Datum=Anwesenheitsliste(qr_id=id,ankunft=aktuelle_zeit,verlassen=aktuelle_zeit,kommentar="Test",aufenthaltsdauer=0  )
         Datum.save()
 
         Person_Heutigeanmeldung=Person.objects.get(id=id)
@@ -59,8 +59,13 @@ def verlassen_speichern(request, id):
     current_day = timezone.now().day
     current_month = timezone.now().month
 
+
     Auslogwert=Anwesenheitsliste.objects.get(qr_id=id,ankunft__day=current_day,ankunft__month=current_month)    
+    
+    delta=(aktuelle_zeit-Auslogwert.ankunft)
     Auslogwert.verlassen=aktuelle_zeit
+    Auslogwert.aufenthaltsdauer=round(delta.seconds/60)
+
     Auslogwert.save()
     #messages.info(request, 'Erfolgreiche Nachricht')  ?
     #print("Zeitzone Verlassen",Auslogwert.verlassen)
@@ -135,7 +140,7 @@ def export_excel(request):
         ankunft   .append(zeile.ankunft.  strftime("%d.%m.%Y %H:%M"))
         verlassen .append(zeile.verlassen.strftime("%d.%m.%Y %H:%M"))
         delta=(datetime.strptime(verlassen[-1],"%d.%m.%Y %H:%M")-datetime.strptime(ankunft[-1],"%d.%m.%Y %H:%M"))
-        differenz .append((delta).total_seconds()/60)
+        differenz .append(round((delta).total_seconds()/60))
     print(nachnamen)
     data={"Nachnamen":nachnamen,"Vornamen":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen,"DauerStunden":differenz}
     df1 = pd.DataFrame(data,columns=['Vornamen','Nachnamen',"Klasse",'Ankunft','Verlassen','DauerStunden'])
