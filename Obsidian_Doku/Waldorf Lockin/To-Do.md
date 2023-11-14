@@ -4,12 +4,14 @@
 	- [ ] Beginn Button 
 		- [x] Zeit verknüpfen
 	- [ ] Ende Button
-		- [ ] Was wenn vor Beginn gedrückt
+		- [x] Was wenn vor Beginn gedrückt
 		- [x] hier muss Eintrag von heute benutzt werden
 	- [x] Feierabend button
 	- [x] Schülerlisten erstellen
-	- [ ] Alert Fenster wenn auf An/Abmelden gedrückt
+	- [x] Alert Fenster wenn auf An/Abmelden gedrückt
 	- [x] CSS einbauen
+	- [ ] Löschbutton/Korrektur
+	- [ ] Suchfeld
 - [ ] Code
 	- [ ] aufräumen
 	- [ ] Namen anpassen

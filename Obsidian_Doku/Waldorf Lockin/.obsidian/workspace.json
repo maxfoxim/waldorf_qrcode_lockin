@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PythonCode/Ausführung.md",
+                "file": "To-Do.md",
                 "mode": "source",
                 "source": false
               }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "PythonCode/Ausführung.md",
+                "file": "To-Do.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "PythonCode/Ausführung.md",
+                "file": "To-Do.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -186,7 +186,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PythonCode/Ausführung.md"
+                "file": "To-Do.md"
               }
             }
           }
@@ -209,17 +209,16 @@
   },
   "active": "f0a5e46dd96076fc",
   "lastOpenFiles": [
+    "PythonCode/Ausführung.md",
     "CSS.md",
     "VS Code.md",
     "CSS.md",
     "Unbenannt.canvas",
     "To-Do.md",
-    "PythonCode/Ausführung.md",
     "Links.md",
     "PythonCode/Fehler.md",
     "Dateien",
     "Dateien/Pasted image 20231003203315.png",
-    "PythonCode/Ausführung.md",
     "To-Do.md",
     "Oberfläche Design.md",
     "Unbenannt.canvas",

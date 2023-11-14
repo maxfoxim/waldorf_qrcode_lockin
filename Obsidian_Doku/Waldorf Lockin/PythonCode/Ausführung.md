@@ -8,9 +8,9 @@ Datenbanken aktualiseren
 https://docs.djangoproject.com/en/4.2/intro/tutorial02/
 
 ```python
-python manage.py migrate
-
 python manage.py makemigrations
+
+python manage.py migrate
 ```
 
 
