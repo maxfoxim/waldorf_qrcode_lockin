@@ -30,6 +30,9 @@ urlpatterns = [
     path('exportexcel/',export_excel, name='export_excel'),
     path('importexcel/',import_excel, name='import_excel'),
     path("anwesenheiten/",anwesenheitsliste,name="anwesenheitsliste"),
-    path("anwesenheiten_tag/",anwesenheitsliste_tag,name="anwesenheitsliste_tag")
+    path("anwesenheiten_tag/",anwesenheitsliste_tag,name="anwesenheitsliste_tag"),
+    path("anmeldung_korrigieren/",anmeldung_korrigieren,name="anmeldung_korrigieren"),
+    path("anmeldung_entfernen/<int:id>/",anmeldung_entfernen,name="anmeldung_entfernen")
+
 
 ]

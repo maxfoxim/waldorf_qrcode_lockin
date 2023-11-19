@@ -65,7 +65,7 @@
 
 {% block page_content %}
 
-<h1>Heutige Anwesenheiten</h1>
+<h1>Korrekturen</h1>
 <button type="button" class="btn btn-info"   onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
 <button type="button" class="btn btn-info"   onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
 <button type="button" class="btn btn-danger" onclick="location.href='{% url 'export_excel' %}'">Excel Datei Erstellen</button>
@@ -79,6 +79,7 @@
       <th  onclick="sortTable(2)">Angekommen</th>
       <th  onclick="sortTable(3)">Verlassen</th>
       <th  onclick="sortTable(4)">Aufenthaltsdauer</th>
+      <th  onclick="sortTable(5)">Anfang löschen</th>
   </tr>
   {% for x in data %}
   <tr>
@@ -87,6 +88,7 @@
       <td>{{x.ankunft}}</td>
       <td>{{x.verlassen }}</td>
       <td>{{x.aufenthaltsdauer}}</td>
+      <td>  <button type="button" class="btn btn-warning" onclick="location.href=\'{% url "anmeldung_entfernen" x.id%}\'">Anmeldung entfernen</button></td>
 
   </tr>
   {% endfor %}

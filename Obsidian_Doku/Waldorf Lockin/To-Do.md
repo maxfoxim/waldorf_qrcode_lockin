@@ -1,5 +1,4 @@
-- [ ] Tabellen
-	- [x] Datumstabelle erstellen
+
 - [ ] Oberfläche
 	- [ ] Beginn Button 
 		- [x] Zeit verknüpfen
@@ -12,6 +11,9 @@
 	- [x] CSS einbauen
 	- [ ] Löschbutton/Korrektur
 	- [ ] Suchfeld
+- [ ] Sicherheit:
+	- [ ] Verschiedene Oberflächen für Lehrer/Schüler
+	- [ ] Passwort bei Anmeldung
 - [ ] Code
 	- [ ] aufräumen
 	- [ ] Namen anpassen
@@ -26,4 +28,5 @@
 	- [x] Schwarz/Weiß Werte
 	- [ ] Suchfeld	
 	- [ ] Sortieren bei Zeiten nicht korrekt
+	- [ ] Änderungsbutton bei fehlerhafter Eingabe
 	- [x] 2->3 Zeichen bei Klasse aktualisieren

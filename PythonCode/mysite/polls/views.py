@@ -48,9 +48,10 @@ def ankommen_speichern(request, id):
     
     #meetingData = Anwesenheitsliste.objects.all()
     Personen=Person.objects.get(id=id)
-    Name=Personen.vorname
+    Name=    Personen.vorname
+    Nachname=Personen.nachname
     print("ID ist",Name,Person)
-    return render(request, 'htmlseiten/hello.html', {'data': [Name]})
+    return render(request, 'htmlseiten/hello.html', {'data': [Name+" "+Nachname]})
 
 
 
@@ -59,7 +60,6 @@ def verlassen_speichern(request, id):
     current_day = timezone.now().day
     current_month = timezone.now().month
 
-
     Auslogwert=Anwesenheitsliste.objects.get(qr_id=id,ankunft__day=current_day,ankunft__month=current_month)    
     
     delta=(aktuelle_zeit-Auslogwert.ankunft)
@@ -67,10 +67,14 @@ def verlassen_speichern(request, id):
     Auslogwert.aufenthaltsdauer=round(delta.seconds/60)
 
     Auslogwert.save()
+
+    Personen=Person.objects.get(id=id)
+    Name=    Personen.vorname
+    Nachname=Personen.nachname
     #messages.info(request, 'Erfolgreiche Nachricht')  ?
     #print("Zeitzone Verlassen",Auslogwert.verlassen)
     #render(request, 'hello.html', {'data': ["byebye"]})
-    return render(request, 'htmlseiten/abschied.html', {'data': []})
+    return render(request, 'htmlseiten/abschied.html', {'data': [Name+" "+Nachname]})
 
 
 def alle_abmelden(request):
@@ -114,9 +118,15 @@ def anwesenheitsliste_tag(request):
     print(meetingData)
     return render(request, 'htmlseiten/anwesenheiten_tag.html', {'data': meetingData })
 
+def anmeldung_korrigieren(request):
+    aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
+    current_day = timezone.now().day
+    current_month = timezone.now().month
+    meetingData=Anwesenheitsliste.objects.filter(ankunft__day=current_day).filter(ankunft__month=current_month)    
+    return render(request, 'htmlseiten/anmeldung_korrigieren.html', {'data': meetingData })
 
-
-
+def anmeldung_entfernen(request,id ):
+    pass
 
 def export_excel(request):
     """
@@ -145,9 +155,7 @@ def export_excel(request):
     data={"Nachnamen":nachnamen,"Vornamen":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen,"DauerStunden":differenz}
     df1 = pd.DataFrame(data,columns=['Vornamen','Nachnamen',"Klasse",'Ankunft','Verlassen','DauerStunden'])
     df1.to_excel("output.xlsx",index=False)  
-
     data=[]
-
     return render(request, 'htmlseiten/excelexport.html', {'data': data })
 
 
