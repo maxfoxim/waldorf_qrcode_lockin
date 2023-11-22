@@ -88,7 +88,7 @@
       <td>{{x.ankunft}}</td>
       <td>{{x.verlassen }}</td>
       <td>{{x.aufenthaltsdauer}}</td>
-      <td>  <button type="button" class="btn btn-warning" onclick="location.href=\'{% url "anmeldung_entfernen" x.id%}\'">Anmeldung entfernen</button></td>
+      <td>  <button type="button" class="btn btn-warning" onclick="location.href='{% url 'anmeldung_entfernen' x.id%}'">Anmeldung entfernen</button></td>
 
   </tr>
   {% endfor %}

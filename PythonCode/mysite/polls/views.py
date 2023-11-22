@@ -125,8 +125,12 @@ def anmeldung_korrigieren(request):
     meetingData=Anwesenheitsliste.objects.filter(ankunft__day=current_day).filter(ankunft__month=current_month)    
     return render(request, 'htmlseiten/anmeldung_korrigieren.html', {'data': meetingData })
 
-def anmeldung_entfernen(request,id ):
-    pass
+def anmeldung_entfernen(request,id):
+    Auslogwert=Anwesenheitsliste.objects.get(id=id).delete()
+    print(Auslogwert)
+    #Auslogwert.delete()
+    #Auslogwert.save()
+    return render(request, 'htmlseiten/korrektur_confirm.html', {'data': []})
 
 def export_excel(request):
     """
