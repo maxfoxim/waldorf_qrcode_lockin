@@ -85,13 +85,17 @@ def alle_abmelden(request):
     current_day =   timezone.now().day
     current_month = timezone.now().month
 
-    Auslogwert=Anwesenheitsliste.objects.get(ankunft__day=current_day ,ankunft__month=current_month)    
+    #Auslogwert=Anwesenheitsliste.objects.get(ankunft__day=current_day ,ankunft__month=current_month)  
+    Auslogwert=Anwesenheitsliste.objects.filter(ankunft__day=current_day).filter(ankunft__month=current_month)    
+
     #Auslogwert.verlassen=aktuelle_zeit
     print("ALLE ABMELDEN")
     for Zeile in Auslogwert:
         if Zeile.verlassen==Zeile.ankunft:
         #if True:
             Zeile.verlassen=aktuelle_zeit
+            delta=(aktuelle_zeit-Zeile.ankunft)
+            Zeile.aufenthaltsdauer=round(delta.seconds/60)
             print(Zeile)
             Zeile.save()
         else:

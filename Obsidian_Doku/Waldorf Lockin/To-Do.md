@@ -9,8 +9,10 @@
 	- [x] Schülerlisten erstellen
 	- [x] Alert Fenster wenn auf An/Abmelden gedrückt
 	- [x] CSS einbauen
-	- [ ] Löschbutton/Korrektur
+	- [x] Löschbutton/Korrektur
 	- [ ] Suchfeld
+	- [ ] Schülerliste:
+		- [ ] Anzahl Tage Anwesend
 - [ ] Sicherheit:
 	- [ ] Verschiedene Oberflächen für Lehrer/Schüler
 	- [ ] Passwort bei Anmeldung
@@ -27,6 +29,6 @@
 - [ ] Tabelle
 	- [x] Schwarz/Weiß Werte
 	- [ ] Suchfeld	
-	- [ ] Sortieren bei Zeiten nicht korrekt
-	- [ ] Änderungsbutton bei fehlerhafter Eingabe
+	- [x] Sortieren bei Zeiten nicht korrekt
+	- [x] Änderungsbutton bei fehlerhafter Eingabe
 	- [x] 2->3 Zeichen bei Klasse aktualisieren

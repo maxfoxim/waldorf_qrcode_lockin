@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "To-Do.md",
+                "file": "Allgemeiner Programmablauf.md",
                 "mode": "source",
                 "source": false
               }
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "To-Do.md",
+                "file": "Allgemeiner Programmablauf.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "To-Do.md",
+                "file": "Allgemeiner Programmablauf.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -186,7 +186,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "To-Do.md"
+                "file": "Allgemeiner Programmablauf.md"
               }
             }
           }
@@ -209,35 +209,33 @@
   },
   "active": "f0a5e46dd96076fc",
   "lastOpenFiles": [
+    "Datenbank.md",
+    "Detailteufel.md",
+    "Django Einstellungen.md",
+    "Links.md",
+    "Missbrauch.md",
+    "Oberfläche Design.md",
+    "Oberfläche Umsetzung.md",
+    "Offene Frage.md",
+    "QR-Code.md",
+    "Schülerliste.md",
+    "Sicherheit.md",
+    "Synchronisierung Daten.md",
+    "Unbenannt.canvas",
+    "Allgemeiner Programmablauf.md",
+    "PythonCode/Wichtige Erkenntnisse oder gemachte Fehler.md",
+    "PythonCode/Pakete.md",
+    "PythonCode/Fehler.md",
+    "To-Do.md",
     "PythonCode/Ausführung.md",
     "CSS.md",
     "VS Code.md",
     "CSS.md",
-    "Unbenannt.canvas",
-    "To-Do.md",
-    "Links.md",
-    "PythonCode/Fehler.md",
     "Dateien",
     "Dateien/Pasted image 20231003203315.png",
-    "To-Do.md",
-    "Oberfläche Design.md",
-    "Unbenannt.canvas",
-    "Datenbank.md",
-    "Detailteufel.md",
-    "Django Einstellungen.md",
     "Hardware.md",
-    "Missbrauch.md",
-    "Oberfläche Umsetzung.md",
-    "Offene Frage.md",
     "Tabellen.md",
-    "Schülerliste.md",
-    "PythonCode/Wichtige Erkenntnisse oder gemachte Fehler.md",
     "PythonCode/Seite neu Laden.md",
-    "PythonCode/Pakete.md",
-    "Allgemeiner Programmablauf.md",
-    "QR-Code.md",
-    "Sicherheit.md",
-    "Synchronisierung Daten.md",
     "PythonCode",
     "Konzepte/Data Stream.md",
     "Konzepte"
