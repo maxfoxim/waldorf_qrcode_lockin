@@ -23,12 +23,18 @@
 - [ ] HTML
 	- [x] Waldorf Logo einbauen
 	- [ ] Look and Feel ? Von Seite zu bekommen?
-- [ ] QR-Code
-	- [ ] Kamera verbinden
-	- [ ] QR-Code erkennen
+- [x] QR-Code
+	- [x] Kamera verbinden
+	- [x] QR-Code erkennen
+	
+- [ ] Netzwerk
+	- [ ] Feste IP Raspberry Pi?
+	- [ ] Erlaubte IP
 - [ ] Tabelle
+	- [ ] Upload Fenster für Excel https://adiramadhan17.medium.com/django-upload-file-50aa56f33914
 	- [x] Schwarz/Weiß Werte
-	- [ ] Suchfeld	
+	- [ ] Suchfeld --> STRG F
+	- [ ] Automatische Abmeldung nach 18 Uhr
 	- [x] Sortieren bei Zeiten nicht korrekt
 	- [x] Änderungsbutton bei fehlerhafter Eingabe
 	- [x] 2->3 Zeichen bei Klasse aktualisieren

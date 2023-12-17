@@ -1,0 +1,6 @@
+django
+django_tables2
+django-crontab
+openpyxl
+pandas
+numpy

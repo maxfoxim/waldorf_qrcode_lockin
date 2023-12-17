@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_tables2"
+    "django_tables2",    
+    'django_crontab',
     ]
 
 MIDDLEWARE = [
@@ -125,5 +126,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    "/var/www/static/",
+   # "/var/www/static/",
+]
+
+
+CRONJOBS = [
+    ('*/1 * * * *', 'mysite.polls.views.alle_abmelden',  [""]   ),
+    ('*/1 * * * *', 'mysite.cron.alle_definitiv_abmelden')
 ]

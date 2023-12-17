@@ -77,6 +77,9 @@ def verlassen_speichern(request, id):
     return render(request, 'htmlseiten/abschied.html', {'data': [Name+" "+Nachname]})
 
 
+def alle_definitiv_abmelden():
+    print("Test ALLE ABMEDEN")
+
 def alle_abmelden(request):
     """
     Alle Schüler die sich noch nicht abgemeldet haben, zusammen abmelden.
@@ -162,7 +165,7 @@ def export_excel(request):
     print(nachnamen)
     data={"Nachnamen":nachnamen,"Vornamen":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen,"DauerStunden":differenz}
     df1 = pd.DataFrame(data,columns=['Vornamen','Nachnamen',"Klasse",'Ankunft','Verlassen','DauerStunden'])
-    df1.to_excel("output.xlsx",index=False)  
+   #df1.to_excel("output.xlsx",index=False)  # download button
     data=[]
     return render(request, 'htmlseiten/excelexport.html', {'data': data })
 
@@ -171,8 +174,12 @@ def import_excel(request):
     """
     Importiere die Personenliste in die DB-Tabelle Personen
     """
+    try:
+        Personden_pd=pd.read_excel('Personen.xlsx') # Sollte absoluter Pfad sein
+    except:
+        Personden_pd=pd.read_excel('/home/admin/Desktop/waldorf/waldorf_qrcode_lockin/PythonCode/mysite/Personen.xlsx') 
 
-    Personden_pd=pd.read_excel('Personen.xlsx') 
+
     for index, row in Personden_pd.iterrows():
         print("-------------")
         print("Row",row)
