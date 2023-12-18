@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_tables2",    
-    'django_crontab',
+    'django_crontab'#,
+    #'background_task',
     ]
 
 MIDDLEWARE = [
@@ -125,8 +126,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-   # "/var/www/static/",
+    BASE_DIR / "static"
+    #"/var/www/static/"
 ]
 
 

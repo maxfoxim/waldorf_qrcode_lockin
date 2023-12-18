@@ -14,6 +14,9 @@ import datetime
 import pytz
 from datetime import datetime
 import os
+from pathlib import Path
+#from .cron import my_scheduled_task
+
 
 class PersonTableView(SingleTableView):
     model = Person
@@ -84,6 +87,9 @@ def alle_abmelden(request):
     """
     Alle Schüler die sich noch nicht abgemeldet haben, zusammen abmelden.
     """
+
+    #my_scheduled_task.schedule(repeat=Task.DAILY, time=datetime.time(hour=8, minute=53))
+
     aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
     current_day =   timezone.now().day
     current_month = timezone.now().month
@@ -163,9 +169,11 @@ def export_excel(request):
         delta=(datetime.strptime(verlassen[-1],"%d.%m.%Y %H:%M")-datetime.strptime(ankunft[-1],"%d.%m.%Y %H:%M"))
         differenz .append(round((delta).total_seconds()/60))
     print(nachnamen)
-    data={"Nachnamen":nachnamen,"Vornamen":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen,"DauerStunden":differenz}
-    df1 = pd.DataFrame(data,columns=['Vornamen','Nachnamen',"Klasse",'Ankunft','Verlassen','DauerStunden'])
-   #df1.to_excel("output.xlsx",index=False)  # download button
+    data={"Nachnamen":nachnamen,"Vornamen":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen,"DauerMinuten":differenz}
+    df1 = pd.DataFrame(data,columns=['Vornamen','Nachnamen',"Klasse",'Ankunft','Verlassen','DauerMinuten'])
+    two_up = Path(__file__).resolve().parents[1]
+    print(two_up)
+    df1.to_excel(str(two_up)+"/static/output.xlsx",index=False)  # download button
     data=[]
     return render(request, 'htmlseiten/excelexport.html', {'data': data })
 
