@@ -54,6 +54,7 @@ def ankommen_speichern(request, id):
     Name=    Personen.vorname
     Nachname=Personen.nachname
     print("ID ist",Name,Person)
+    
     return render(request, 'htmlseiten/hello.html', {'data': [Name+" "+Nachname]})
 
 
@@ -112,6 +113,19 @@ def alle_abmelden(request):
     return render(request, 'htmlseiten/feierabend.html', {'data': None })
 
 
+def klassenauswahl(request):
+    alter=range(1,14)
+    buchstaben=["a","b"]
+    return render(request, 'htmlseiten/klassenauswahl.html', { "alter":alter, "buchstaben":buchstaben })
+
+def schueler_klassenauswahl(request,alter,buchstabe):
+    
+    print("Klasse:",alter,buchstabe,str(alter)+buchstabe)
+    meetingData=Person.objects.filter(klasse=str(alter)+buchstabe)  
+
+    #print(meetingData)
+
+    return render(request, 'htmlseiten/schueler_klassenauswahl.html', {'data':meetingData})
 
 
 def anwesenheitsliste(request):
@@ -124,7 +138,7 @@ def anwesenheitsliste(request):
 def anwesenheitsliste_tag(request):
     #meetingData = Anwesenheitsliste.objects.all()
     #messages.info(request, 'Erfolgreiche Nachricht')  
-    aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
+    #aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
     current_month = timezone.now().month
     meetingData=Anwesenheitsliste.objects.filter(ankunft__day=current_day).filter(ankunft__month=current_month)    
@@ -132,7 +146,7 @@ def anwesenheitsliste_tag(request):
     return render(request, 'htmlseiten/anwesenheiten_tag.html', {'data': meetingData })
 
 def anmeldung_korrigieren(request):
-    aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
+    #aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
     current_month = timezone.now().month
     meetingData=Anwesenheitsliste.objects.filter(ankunft__day=current_day).filter(ankunft__month=current_month)    

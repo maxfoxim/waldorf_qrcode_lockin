@@ -61,37 +61,16 @@
     }
 </script>
 
-{% block title %}Personenliste Schulclub{% endblock title %}
+{% block title %}Personenliste nach Klasse{% endblock title %}
 
 {% block page_content %}
-<!--style>
-  table {
-      border-collapse: collapse;
-      width: 100%;
-  }
-  td,
-  th {
-      border: 1px solid #3347b9;
-      text-align: left;
-      padding: 8px;
-  }
-tr:nth-of-type(odd) { 
-    background: blue; 
-    }
 
-    tr:nth-of-type(even) { 
-    background: white; 
-    }
-</style-->
-
-<h1>Anwesenheitsliste Übersicht</h1>
+<h1>Personenliste nach Klasse</h1>
 <button type="button" class="btn btn-info"    onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
-<button type="button" class="btn btn-info"    onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
 <button type="button" class="btn btn-info"    onclick="location.href='{% url 'klassenauswahl' %}'">Klassenauswahl</button>
-<button type="button" class="btn btn-info"    onclick="location.href='{% url 'anmeldung_korrigieren' %}'">Anmeldung korrigieren</button>
+<button type="button" class="btn btn-info"    onclick="location.href='{% url 'anwesenheitsliste' %}'">Anwesenheitsliste</button>
 <button type="button" class="btn btn-primary" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
-<button type="button" class="btn btn-danger"  onclick="location.href='{% url 'export_excel' %}'">Excel Datei Erstellen</button>
-<button type="button" class="btn btn-danger"  onclick='location.href="/static/output.xlsx"' download>Download Exceldokument</button>
+<button type="button" class="btn btn-warning" onclick="location.href='{% url 'zeitspeichernverlassen_alle' %}'">Alle abmelden</button>
 
 
 <table id="anwesenheitstabelle" class="table table-striped">
@@ -99,17 +78,20 @@ tr:nth-of-type(odd) {
       <th  onclick="sortTable(0)">Name</th>
       <th  onclick="sortTable(1)">Nachname</th>
       <th  onclick="sortTable(2)">Angekommen</th>
-      <th  onclick="sortTable(3)">Verlassen</th>
-      <th  onclick="sortTable(4)">Aufenthaltsdauer [min]</th>
+      <th  onclick="sortTable(3)">Klasse</th>
+      <th  onclick="sortTable(4)">Anmeldung</th>
+      <th  onclick="sortTable(5)">Abmeldung</th>
 
   </tr>
   {% for x in data %}
   <tr>
-      <td>{{x.qr.vorname }}</td>
-      <td>{{x.qr.nachname }}</td>
+      <td>{{x.vorname }}</td>
+      <td>{{x.nachname }}</td>
       <td>{{x.ankunft}}</td>
-      <td>{{x.verlassen }}</td>
-      <td>{{x.aufenthaltsdauer}}</td>
+      <td>{{x.klasse}}</td>
+      <td>  <button type="button" class="btn btn-primary" onclick="location.href='{% url 'zeitspeichernankommen' x.id%}'">Anmeldung</button></td>
+      <td>  <button type="button" class="btn btn-warning" onclick="location.href='{% url 'zeitspeichernverlassen' x.id%}'">Abmeldung</button></td>
+
 
   </tr>
   {% endfor %}
