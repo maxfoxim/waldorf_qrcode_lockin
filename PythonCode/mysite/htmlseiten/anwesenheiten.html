@@ -98,15 +98,17 @@ tr:nth-of-type(odd) {
   <tr>
       <th  onclick="sortTable(0)">Name</th>
       <th  onclick="sortTable(1)">Nachname</th>
-      <th  onclick="sortTable(2)">Angekommen</th>
-      <th  onclick="sortTable(3)">Verlassen</th>
-      <th  onclick="sortTable(4)">Aufenthaltsdauer [min]</th>
+      <th  onclick="sortTable(2)">Klasse</th>
+      <th  onclick="sortTable(3)">Angekommen</th>
+      <th  onclick="sortTable(4)">Verlassen</th>
+      <th  onclick="sortTable(5)">Aufenthaltsdauer [min]</th>
 
   </tr>
   {% for x in data %}
   <tr>
       <td>{{x.qr.vorname }}</td>
       <td>{{x.qr.nachname }}</td>
+      <td>{{x.qr.klasse }}</td>
       <td>{{x.ankunft}}</td>
       <td>{{x.verlassen }}</td>
       <td>{{x.aufenthaltsdauer}}</td>

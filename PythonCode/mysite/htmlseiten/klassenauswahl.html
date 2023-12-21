@@ -7,7 +7,9 @@
 
     {% block page_content %}
     <h1>Klassenliste Übersicht</h1>
-
+    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
+    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'anwesenheitsliste' %}'">Anwesenheitsliste</button>
+    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
     <table id="klassen" class="table table-striped">
 
     {% for x in alter %}

@@ -15,7 +15,6 @@ import pytz
 from datetime import datetime
 import os
 from pathlib import Path
-#from .cron import my_scheduled_task
 
 
 class PersonTableView(SingleTableView):
@@ -63,22 +62,26 @@ def verlassen_speichern(request, id):
     aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
     current_month = timezone.now().month
-
-    Auslogwert=Anwesenheitsliste.objects.get(qr_id=id,ankunft__day=current_day,ankunft__month=current_month)    
-    
-    delta=(aktuelle_zeit-Auslogwert.ankunft)
-    Auslogwert.verlassen=aktuelle_zeit
-    Auslogwert.aufenthaltsdauer=round(delta.seconds/60)
-
-    Auslogwert.save()
-
     Personen=Person.objects.get(id=id)
     Name=    Personen.vorname
     Nachname=Personen.nachname
-    #messages.info(request, 'Erfolgreiche Nachricht')  ?
-    #print("Zeitzone Verlassen",Auslogwert.verlassen)
-    #render(request, 'hello.html', {'data': ["byebye"]})
-    return render(request, 'htmlseiten/abschied.html', {'data': [Name+" "+Nachname]})
+
+    try:
+        Auslogwert=Anwesenheitsliste.objects.get(qr_id=id,ankunft__day=current_day,ankunft__month=current_month)    
+        
+        delta=(aktuelle_zeit-Auslogwert.ankunft)
+        Auslogwert.verlassen=aktuelle_zeit
+        Auslogwert.aufenthaltsdauer=round(delta.seconds/60)
+
+        Auslogwert.save()
+
+        #messages.info(request, 'Erfolgreiche Nachricht')  ?
+        #print("Zeitzone Verlassen",Auslogwert.verlassen)
+        #render(request, 'hello.html', {'data': ["byebye"]})
+        return render(request, 'htmlseiten/abschied.html', {'data': [Name+" "+Nachname]})
+    except:
+        return render(request, 'htmlseiten/keineAnmeldung.html', {'data': [Name+" "+Nachname]})
+
 
 
 def alle_definitiv_abmelden():
@@ -118,13 +121,10 @@ def klassenauswahl(request):
     buchstaben=["a","b"]
     return render(request, 'htmlseiten/klassenauswahl.html', { "alter":alter, "buchstaben":buchstaben })
 
+
 def schueler_klassenauswahl(request,alter,buchstabe):
-    
     print("Klasse:",alter,buchstabe,str(alter)+buchstabe)
     meetingData=Person.objects.filter(klasse=str(alter)+buchstabe)  
-
-    #print(meetingData)
-
     return render(request, 'htmlseiten/schueler_klassenauswahl.html', {'data':meetingData})
 
 
@@ -199,7 +199,7 @@ def import_excel(request):
     try:
         Personden_pd=pd.read_excel('Personen.xlsx') # Sollte absoluter Pfad sein
     except:
-        Personden_pd=pd.read_excel('/home/admin/Desktop/waldorf/waldorf_qrcode_lockin/PythonCode/mysite/Personen.xlsx') 
+        Personden_pd=pd.read_excel('/home/admin/Desktop/Personen.xlsx') 
 
 
     for index, row in Personden_pd.iterrows():
