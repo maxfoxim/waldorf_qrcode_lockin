@@ -69,7 +69,7 @@
 <button type="button" class="btn btn-info"   onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
 <button type="button" class="btn btn-info"   onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
 <button type="button" class="btn btn-info"   onclick="location.href='{% url 'anmeldung_korrigieren' %}'">Anmeldung korrigieren</button>
-<button type="button" class="btn btn-warning" onclick="location.href='{% url 'zeitspeichernverlassen_alle' %}'">Alle abmelden</button>
+<button type="button" class="btn btn-warning"onclick="location.href='{% url 'zeitspeichernverlassen_alle' %}'">Alle abmelden</button>
 <button type="button" class="btn btn-danger" onclick="location.href='{% url 'export_excel' %}'">Excel Datei Erstellen</button>
 <button type="button" class="btn btn-danger" onclick='location.href="/static/output.xlsx"' download>Download Exceldokument</button>
 
@@ -81,6 +81,7 @@
       <th  onclick="sortTable(2)">Angekommen</th>
       <th  onclick="sortTable(3)">Verlassen</th>
       <th  onclick="sortTable(4)">Aufenthaltsdauer</th>
+      <th  onclick="sortTable(5)">Abmeldung</th>
   </tr>
   {% for x in data %}
   <tr>
@@ -89,6 +90,7 @@
       <td>{{x.ankunft}}</td>
       <td>{{x.verlassen }}</td>
       <td>{{x.aufenthaltsdauer}}</td>
+      <td>  <button type="button" class="btn btn-warning" onclick="location.href='{% url 'zeitspeichernverlassen' x.qr_id%}'">Abmeldung</button></td>
 
   </tr>
   {% endfor %}

@@ -41,7 +41,7 @@ def ankommen_speichern(request, id):
     if len(Bereits_Eingeloggt)>0: # Bereits ein Eintrag vorhanden
         print("Eintrag bereits vorhanden.")
     else:
-        Datum=Anwesenheitsliste(qr_id=id,ankunft=aktuelle_zeit,verlassen=aktuelle_zeit,kommentar="Test",aufenthaltsdauer=0  )
+        Datum=Anwesenheitsliste(qr_id=id,ankunft=aktuelle_zeit,verlassen=None,kommentar="Test",aufenthaltsdauer=0  )
         Datum.save()
 
         Person_Heutigeanmeldung=Person.objects.get(id=id)
@@ -82,10 +82,6 @@ def verlassen_speichern(request, id):
     except:
         return render(request, 'htmlseiten/keineAnmeldung.html', {'data': [Name+" "+Nachname]})
 
-
-
-def alle_definitiv_abmelden():
-    print("Test ALLE ABMEDEN")
 
 def alle_abmelden(request):
     """
