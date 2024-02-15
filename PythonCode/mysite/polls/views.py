@@ -108,7 +108,7 @@ def alle_abmelden(request):
         #if True:
             Zeile.verlassen=aktuelle_zeit
             delta=(aktuelle_zeit-Zeile.ankunft)
-            Zeile.aufenthaltsdauer=round(delta.seconds/60)
+            Zeile.aufenthaltsdauer = round(delta.seconds/60)
             print(Zeile)
             Zeile.save()
         else:
@@ -118,7 +118,7 @@ def alle_abmelden(request):
 
 def klassenauswahl(request):
     alter=range(1,14)
-    buchstaben=["a","b"]
+    buchstaben = ["a","b"]
     return render(request, 'htmlseiten/klassenauswahl.html', { "alter":alter, "buchstaben":buchstaben })
 
 

@@ -10,9 +10,16 @@
 	- [x] Alert Fenster wenn auf An/Abmelden gedrückt
 	- [x] CSS einbauen
 	- [x] Löschbutton/Korrektur
-	- [ ] Suchfeld
+	- [x] Suchfeld
 	- [ ] Schülerliste:
 		- [ ] Anzahl Tage Anwesend
+	- [ ] Fehlerausgabe wenn Abmeldung aber keine vorherige Anmeldung
+	- [ ] Gesamtzeit addiert in Schülerliste
+	- [ ] Statistiken?
+		- [ ] Durchschnittsdauer
+		- [ ] Max
+		- [ ] Min
+		- [ ] 
 - [ ] Sicherheit:
 	- [ ] Verschiedene Oberflächen für Lehrer/Schüler
 	- [ ] Passwort bei Anmeldung
@@ -23,6 +30,7 @@
 - [ ] HTML
 	- [x] Waldorf Logo einbauen
 	- [ ] Look and Feel ? Von Seite zu bekommen?
+	- [ ] Heutige Anmeldungen aktualiseren nach einem Tag
 - [x] QR-Code
 	- [x] Kamera verbinden
 	- [x] QR-Code erkennen
@@ -30,11 +38,16 @@
 - [ ] Netzwerk
 	- [ ] Feste IP Raspberry Pi?
 	- [ ] Erlaubte IP
+	- [ ] Pfade Windows/Linux
+- [ ] Cronjob
+	- [ ] SQLLite to Postgres https://hevodata.com/learn/sqlite-to-postgresql/ 
+	- [ ] CronJob für Enddatum
 - [ ] Tabelle
 	- [ ] Upload Fenster für Excel https://adiramadhan17.medium.com/django-upload-file-50aa56f33914
 	- [x] Schwarz/Weiß Werte
 	- [ ] Suchfeld --> STRG F
 	- [ ] Automatische Abmeldung nach 18 Uhr
+		- [ ] und dann Speichern Excel
 	- [x] Sortieren bei Zeiten nicht korrekt
 	- [x] Änderungsbutton bei fehlerhafter Eingabe
 	- [x] 2->3 Zeichen bei Klasse aktualisieren
