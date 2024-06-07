@@ -40,7 +40,7 @@
 	- [ ] Erlaubte IP
 	- [ ] Pfade Windows/Linux
 - [ ] Cronjob
-	- [ ] SQLLite to Postgres https://hevodata.com/learn/sqlite-to-postgresql/ 
+	- [x] SQLLite to Postgres https://hevodata.com/learn/sqlite-to-postgresql/ 
 	- [ ] CronJob für Enddatum
 - [ ] Tabelle
 	- [ ] Upload Fenster für Excel https://adiramadhan17.medium.com/django-upload-file-50aa56f33914

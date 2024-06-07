@@ -84,7 +84,8 @@ DATABASES = {
     }
 }
 
-
+"""
+# Achtung! Braucht lokalen POSTGRESS Server!
 DATABASES = {'default': 
              {'ENGINE': 'django.db.backends.postgresql_psycopg2',
               'NAME': 'schulclub_datenbank',
@@ -93,7 +94,7 @@ DATABASES = {'default':
               'HOST' : 'localhost',
               'PORT' : '5432',}
             }
-
+"""
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
