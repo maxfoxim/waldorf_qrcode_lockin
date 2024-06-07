@@ -100,12 +100,13 @@ def alle_abmelden(request):
     #Auslogwert.verlassen=aktuelle_zeit
     print("ALLE ABMELDEN")
     for Zeile in Auslogwert:
-        if Zeile.verlassen==Zeile.ankunft:
-        #if True:
+        print(Zeile,Zeile.verlassen, Zeile.qr_id)
+
+        if Zeile.verlassen==None:
+        # True:
             Zeile.verlassen=aktuelle_zeit
             delta=(aktuelle_zeit-Zeile.ankunft)
             Zeile.aufenthaltsdauer = round(delta.seconds/60)
-            print(Zeile)
             Zeile.save()
         else:
             print("Einzeln ausgeloggt")
