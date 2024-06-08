@@ -101,15 +101,13 @@ def alle_abmelden(request):
     print("ALLE ABMELDEN")
     for Zeile in Auslogwert:
         print(Zeile,Zeile.verlassen, Zeile.qr_id)
-
         if Zeile.verlassen==None:
-        # True:
             Zeile.verlassen=aktuelle_zeit
             delta=(aktuelle_zeit-Zeile.ankunft)
             Zeile.aufenthaltsdauer = round(delta.seconds/60)
             Zeile.save()
         else:
-            print("Einzeln ausgeloggt")
+            print("Bereits einzeln ausgeloggt:",Zeile.verlassen)
     return render(request, 'htmlseiten/feierabend.html', {'data': None })
 
 
@@ -176,7 +174,12 @@ def export_excel(request):
         vornamen  .append(schueler.vorname)
         klasse    .append(schueler.klasse)
         ankunft   .append(zeile.ankunft.  strftime("%d.%m.%Y %H:%M"))
-        verlassen .append(zeile.verlassen.strftime("%d.%m.%Y %H:%M"))
+
+        if zeile.verlassen == None: # Vergessene Abmeldungen auf 18:00 gleichen Tag festlegen
+            verlassen .append(zeile.ankunft.strftime("%d.%m.%Y 18:00"))
+        else:
+            verlassen .append(zeile.verlassen.strftime("%d.%m.%Y %H:%M"))
+
         delta=(datetime.strptime(verlassen[-1],"%d.%m.%Y %H:%M")-datetime.strptime(ankunft[-1],"%d.%m.%Y %H:%M"))
         differenz .append(round((delta).total_seconds()/60))
     print(nachnamen)
