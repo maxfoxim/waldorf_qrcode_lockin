@@ -21,9 +21,11 @@ from polls.views import *
 
 urlpatterns = [
     #path("polls/", include("polls.urls")),
+    path("",hauptseite,name="hauptseite"),
     path("hauptseite/",hauptseite,name="hauptseite"),
     path("schuelerliste/", PersonTableView.as_view(),name="schuelerliste"),
     path("admin/", admin.site.urls),
+    path("zeiten_pro_schueler/<int:id>/"  ,Zeiten_Pro_Schueler, name='Zeiten_Pro_Schueler'),
     path("zeitspeichernankommen/<int:id>/"  ,ankommen_speichern, name='zeitspeichernankommen'),
     path('zeitspeichernverlassen/<int:id>/',verlassen_speichern, name='zeitspeichernverlassen'),
     path('zeitspeichernverlassen_alle/',alle_abmelden, name='zeitspeichernverlassen_alle'),

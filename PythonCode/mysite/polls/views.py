@@ -181,6 +181,8 @@ def export_excel(request):
         if zeile.verlassen == None: # Vergessene Abmeldungen auf 18:00 gleichen Tag festlegen
             verlassen .append(zeile.ankunft.strftime("%d.%m.%Y 18:00"))
             zeile.kommentar = "Abmeldung Automatisch"
+            zeile.verlassen = zeile.ankunft.strftime("%Y-%m-%d 18:00:00Z")
+
             zeile.save()
         else:
             verlassen .append(zeile.verlassen.strftime("%d.%m.%Y %H:%M"))
@@ -215,6 +217,21 @@ def import_excel(request):
     Personen_Stand.save()
     return render(request, 'htmlseiten/excelimport.html', {'data': Personen_Stand })
 
+
+def Zeiten_Pro_Schueler(request,id):
+    """ 
+    Erstelle eine Zeithistorie der An und Abmeldungen pro Schüler
+    """
+    Personen=Person.objects.get(id=id)
+    Name=    Personen.vorname
+    Nachname=Personen.nachname
+    Klasse  =Personen.klasse
+    Gesamter_Name=Name + " " + Nachname+ "("+Klasse+")"
+
+    meetingData=Anwesenheitsliste.objects.filter(qr_id=id)    
+
+
+    return render(request, 'htmlseiten/zeiten_pro_schueler.html', {'data': meetingData,"Gesamter_Name":Gesamter_Name })
 
 """
 def html_button(request):
