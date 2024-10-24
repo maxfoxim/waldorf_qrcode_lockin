@@ -10,7 +10,7 @@ class Person(models.Model):
     vorname =  models.CharField(max_length=100, verbose_name="Vorname")
     nachname = models.CharField(max_length=100, verbose_name="Nachname")
     klasse =   models.CharField(max_length=3,   verbose_name="Klasse")
-    ankunft =  models.DateTimeField(verbose_name="Ankunft",default=0)
+    ankunft =  models.DateTimeField(verbose_name="Ankunft",default=0, null=True)
     qr_id  =   models.IntegerField(default=1)
 
     def __str__(self):
@@ -22,7 +22,6 @@ class Anwesenheitsliste(models.Model):
     ankunft          =   models.DateTimeField(verbose_name="Ankunft")
     verlassen        =   models.DateTimeField(verbose_name="Verlassen")
     aufenthaltsdauer =   models.FloatField(verbose_name="Aufenthaltsdauer")
-
     kommentar        =   models.CharField(max_length=100,   verbose_name="Kommentar")
     qr               =   models.ForeignKey(Person,on_delete=models.CASCADE)
 

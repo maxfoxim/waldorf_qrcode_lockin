@@ -208,13 +208,12 @@ def import_excel(request):
     except:
         Personden_pd=pd.read_excel('/home/admin/Desktop/Personen.xlsx') 
 
-
     for index, row in Personden_pd.iterrows():
         print("-------------")
         print("Row",row)
         print("vorname",row["Vorname"],"nachname",row["Nachname"],"klasse",row["Klasse"])
         Personen_Stand=Person(id=index,vorname=row["Vorname"],nachname=row["Nachname"],klasse=row["Klasse"],qr_id=index,ankunft=None)
-    Personen_Stand.save()
+        Personen_Stand.save()
     return render(request, 'htmlseiten/excelimport.html', {'data': Personen_Stand })
 
 
