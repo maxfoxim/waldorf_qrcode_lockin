@@ -113,7 +113,7 @@ def alle_abmelden(request):
 
 def klassenauswahl(request):
     alter=range(2010,2020)
-    buchstaben = ["a","b"]
+    buchstaben = ["A","B"]
     return render(request, 'htmlseiten/klassenauswahl.html', { "alter":alter, "buchstaben":buchstaben })
 
 
