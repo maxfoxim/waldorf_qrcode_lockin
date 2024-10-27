@@ -31,25 +31,25 @@ def hauptseite(request):
     return render(request, 'htmlseiten/hauptseite.html', {'data': []})
  
 
-def ankommen_speichern(request, id):
+def ankommen_speichern(request, person_id):
     aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
     current_month = timezone.now().month
 
     # nach ID und aktuellem Tag filtern --> gibt Liste zurück
-    Bereits_Eingeloggt=Anwesenheitsliste.objects.filter(qr_id=id).filter(ankunft__day=current_day).filter(ankunft__month=current_month).values_list("ankunft")
+    Bereits_Eingeloggt=Anwesenheitsliste.objects.filter(person_id=person_id).filter(ankunft__day=current_day).filter(ankunft__month=current_month).values_list("ankunft")
     if len(Bereits_Eingeloggt)>0: # Bereits ein Eintrag vorhanden
         print("Eintrag bereits vorhanden.")
     else:
-        Datum=Anwesenheitsliste(qr_id=id,ankunft=aktuelle_zeit,verlassen=None,kommentar=None,aufenthaltsdauer=0  )
+        Datum=Anwesenheitsliste(ankunft=aktuelle_zeit,verlassen=None,kommentar=None,aufenthaltsdauer=0,person_id=Person.objects.get(id=person_id) ) # id=id???
         Datum.save()
 
-        Person_Heutigeanmeldung=Person.objects.get(id=id)
+        Person_Heutigeanmeldung=Person.objects.get(id=person_id)
         Person_Heutigeanmeldung.ankunft=aktuelle_zeit
         Person_Heutigeanmeldung.save()
     
     #meetingData = Anwesenheitsliste.objects.all()
-    Personen=Person.objects.get(id=id)
+    Personen=Person.objects.get(id=person_id)
     Name=    Personen.vorname
     Nachname=Personen.nachname
     print("ID ist",Name,Person)
@@ -58,16 +58,16 @@ def ankommen_speichern(request, id):
 
 
 
-def verlassen_speichern(request, id):
+def verlassen_speichern(request, person_id):
     aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
     current_month = timezone.now().month
-    Personen=Person.objects.get(id=id)
+    Personen=Person.objects.get(id=person_id)
     Name=    Personen.vorname
     Nachname=Personen.nachname
 
     try:
-        Auslogwert=Anwesenheitsliste.objects.get(qr_id=id,ankunft__day=current_day,ankunft__month=current_month)    
+        Auslogwert=Anwesenheitsliste.objects.get(person_id=person_id,ankunft__day=current_day,ankunft__month=current_month)    
         
         delta=(aktuelle_zeit-Auslogwert.ankunft)
         Auslogwert.verlassen=aktuelle_zeit
@@ -100,7 +100,7 @@ def alle_abmelden(request):
     #Auslogwert.verlassen=aktuelle_zeit
     print("ALLE ABMELDEN")
     for Zeile in Auslogwert:
-        print(Zeile,Zeile.verlassen, Zeile.qr_id)
+        print(Zeile,Zeile.verlassen, Zeile.login_id)
         if Zeile.verlassen==None:
             Zeile.verlassen=aktuelle_zeit
             delta=(aktuelle_zeit-Zeile.ankunft)
@@ -125,33 +125,25 @@ def schueler_klassenauswahl(request,alter,buchstabe):
 
 def anwesenheitsliste(request):
     meetingData = Anwesenheitsliste.objects.all()
-    #messages.info(request, 'Erfolgreiche Nachricht')  
     return render(request, 'htmlseiten/anwesenheiten.html', {'data': meetingData })
 
 
-
 def anwesenheitsliste_tag(request):
-    #meetingData = Anwesenheitsliste.objects.all()
-    #messages.info(request, 'Erfolgreiche Nachricht')  
-    #aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
     current_month = timezone.now().month
     meetingData=Anwesenheitsliste.objects.filter(ankunft__day=current_day).filter(ankunft__month=current_month)    
-    print(meetingData)
+    print("anwesenheitsliste_tag",meetingData)
     return render(request, 'htmlseiten/anwesenheiten_tag.html', {'data': meetingData })
 
 def anmeldung_korrigieren(request):
-    #aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
     current_month = timezone.now().month
     meetingData=Anwesenheitsliste.objects.filter(ankunft__day=current_day).filter(ankunft__month=current_month)    
     return render(request, 'htmlseiten/anmeldung_korrigieren.html', {'data': meetingData })
 
-def anmeldung_entfernen(request,id):
-    Auslogwert=Anwesenheitsliste.objects.get(id=id).delete()
+def anmeldung_entfernen(request,login_id):
+    Auslogwert=Anwesenheitsliste.objects.get(login_id=login_id).delete()
     print(Auslogwert)
-    #Auslogwert.delete()
-    #Auslogwert.save()
     return render(request, 'htmlseiten/korrektur_confirm.html', {'data': []})
 
 def export_excel(request):
@@ -170,12 +162,12 @@ def export_excel(request):
     differenz=[]
     kommentar=[]
     for zeile in anwesenheits_eintraege:
-        schueler=Person.objects.get(id=zeile.qr_id)
+        print(zeile.pk,zeile.person_id,zeile.ankunft,zeile.login_id)
+        schueler=zeile.person_id#Person.objects.get(id = zeile.person_id)
         nachnamen .append(schueler.nachname)
         vornamen  .append(schueler.vorname)
         klasse    .append(schueler.klasse)
         kommentar .append(zeile.kommentar)
-
         ankunft   .append(zeile.ankunft.  strftime("%d.%m.%Y %H:%M"))
 
         if zeile.verlassen == None: # Vergessene Abmeldungen auf 18:00 gleichen Tag festlegen
@@ -191,7 +183,7 @@ def export_excel(request):
         differenz .append(round((delta).total_seconds()/60))
     print(nachnamen)
     data={"Nachnamen":nachnamen,"Vornamen":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen,"DauerMinuten":differenz,"Kommentar":kommentar}
-    df1 = pd.DataFrame(data,columns=['Vornamen','Nachnamen',"Klasse",'Ankunft','Verlassen','DauerMinuten','Kommentar'])
+    df1 = pd.DataFrame(data,columns=['Vorname','Nachname',"Klasse",'Ankunft','Verlassen','DauerMinuten','Kommentar'])
     two_up = Path(__file__).resolve().parents[1]
     print(two_up)
     df1.to_excel(str(two_up)+"/static/output.xlsx",index=False)  # download button
@@ -212,34 +204,22 @@ def import_excel(request):
         print("-------------")
         print("Row",row)
         print("vorname",row["Vorname"],"nachname",row["Nachname"],"klasse",row["Klasse"])
-        Personen_Stand=Person(id=index,vorname=row["Vorname"],nachname=row["Nachname"],klasse=row["Klasse"],qr_id=index,ankunft=None)
+        Personen_Stand=Person(vorname=row["Vorname"],nachname=row["Nachname"],klasse=row["Klasse"],id=index,ankunft=None)
         Personen_Stand.save()
     return render(request, 'htmlseiten/excelimport.html', {'data': Personen_Stand })
 
 
-def Zeiten_Pro_Schueler(request,id):
+def Zeiten_Pro_Schueler(request,person_id):
     """ 
     Erstelle eine Zeithistorie der An und Abmeldungen pro Schüler
     """
-    Personen=Person.objects.get(id=id)
+    Personen=Person.objects.get(id=person_id)
     Name=    Personen.vorname
     Nachname=Personen.nachname
     Klasse  =Personen.klasse
     Gesamter_Name=Name + " " + Nachname+ "("+Klasse+")"
 
-    meetingData=Anwesenheitsliste.objects.filter(qr_id=id)    
+    meetingData=Anwesenheitsliste.objects.filter(person_id=person_id)    
 
 
     return render(request, 'htmlseiten/zeiten_pro_schueler.html', {'data': meetingData,"Gesamter_Name":Gesamter_Name })
-
-"""
-def html_button(request):
-    if request.method == "POST":  
-        form = TableForm(request.POST)  
-        if form.is_valid():  
-            num = form.cleaned_data['num']
-            return render(request, 'people.html', {'Number':num, 'range': range(1,11)})
-    else:  
-        form = TableForm()  
-    return render(request,'people.html',{'form':form})
-"""

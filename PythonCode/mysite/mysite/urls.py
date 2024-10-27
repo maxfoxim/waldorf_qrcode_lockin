@@ -25,9 +25,9 @@ urlpatterns = [
     path("hauptseite/",hauptseite,name="hauptseite"),
     path("schuelerliste/", PersonTableView.as_view(),name="schuelerliste"),
     path("admin/", admin.site.urls),
-    path("zeiten_pro_schueler/<int:id>/"  ,Zeiten_Pro_Schueler, name='Zeiten_Pro_Schueler'),
-    path("zeitspeichernankommen/<int:id>/"  ,ankommen_speichern, name='zeitspeichernankommen'),
-    path('zeitspeichernverlassen/<int:id>/',verlassen_speichern, name='zeitspeichernverlassen'),
+    path("zeiten_pro_schueler/<int:person_id>/"  ,Zeiten_Pro_Schueler, name='Zeiten_Pro_Schueler'),
+    path("zeitspeichernankommen/<int:person_id>/"  ,ankommen_speichern, name='zeitspeichernankommen'),
+    path('zeitspeichernverlassen/<int:person_id>/',verlassen_speichern, name='zeitspeichernverlassen'),
     path('zeitspeichernverlassen_alle/',alle_abmelden, name='zeitspeichernverlassen_alle'),
     path('exportexcel/',export_excel, name='export_excel'),
     path('importexcel/',import_excel, name='import_excel'),
@@ -37,6 +37,4 @@ urlpatterns = [
     path("anmeldung_entfernen/<int:id>/",anmeldung_entfernen,name="anmeldung_entfernen"),
     path("klassenauswahl/",klassenauswahl,name="klassenauswahl"),
     path("schueler_klassenauswahl/<str:alter>-<str:buchstabe>",schueler_klassenauswahl,name="schueler_klassenauswahl")
-
-
 ]

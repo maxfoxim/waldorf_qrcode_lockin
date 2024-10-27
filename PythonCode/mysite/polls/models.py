@@ -6,22 +6,22 @@ import django_tables2 as tables
 
 
 class Person(models.Model):
-    id = models.IntegerField(primary_key=True) # optional
+    id       = models.AutoField(primary_key=True)
     vorname =  models.CharField(max_length=100, verbose_name="Vorname")
     nachname = models.CharField(max_length=100, verbose_name="Nachname")
-    klasse =   models.CharField(max_length=3,   verbose_name="Klasse")
-    ankunft =  models.DateTimeField(verbose_name="Ankunft",default=0, null=True)
-    qr_id  =   models.IntegerField(default=1)
+    klasse =   models.CharField(max_length=5,   verbose_name="Klasse")
+    ankunft =  models.DateTimeField(verbose_name="Ankunft",default=0, null=True,blank=True)
 
     def __str__(self):
-        return (self.id,self.vorname, self.nachname)
+        return (self.vorname)
 
 class Anwesenheitsliste(models.Model):
-    #id =          models.IntegerField(primary_key=True)
-    #qr_id  =      models.IntegerField(default=0)
+    login_id         =   models.AutoField(primary_key=True)
     ankunft          =   models.DateTimeField(verbose_name="Ankunft")
-    verlassen        =   models.DateTimeField(verbose_name="Verlassen")
-    aufenthaltsdauer =   models.FloatField(verbose_name="Aufenthaltsdauer")
-    kommentar        =   models.CharField(max_length=100,   verbose_name="Kommentar")
-    qr               =   models.ForeignKey(Person,on_delete=models.CASCADE)
+    verlassen        =   models.DateTimeField(verbose_name="Verlassen",null=True)
+    aufenthaltsdauer =   models.FloatField(verbose_name="Aufenthaltsdauer",null=True)
+    kommentar        =   models.CharField(max_length=100,   verbose_name="Kommentar",null=True)
+    person_id        =   models.ForeignKey(Person,on_delete=models.CASCADE)
 
+    def __str__(self):
+        return (str(self.person_id))

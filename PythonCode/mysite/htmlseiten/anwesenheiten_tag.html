@@ -85,12 +85,12 @@
   </tr>
   {% for x in data %}
   <tr>
-      <td>{{x.qr.vorname }}</td>
-      <td>{{x.qr.nachname }}</td>
+      <td>{{x.person_id.vorname}}</td>
+      <td>{{x.person_id.nachname }}</td>
       <td>{{x.ankunft}}</td>
       <td>{{x.verlassen }}</td>
       <td>{{x.aufenthaltsdauer}}</td>
-      <td>  <button type="button" class="btn btn-warning" onclick="location.href='{% url 'zeitspeichernverlassen' x.qr_id%}'">Abmeldung</button></td>
+      <td>  <button type="button" class="btn btn-warning" onclick="location.href='{% url 'zeitspeichernverlassen' x.person_id.id%}'">Abmeldung</button></td>
 
   </tr>
   {% endfor %}
