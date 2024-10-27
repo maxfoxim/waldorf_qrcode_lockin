@@ -11,4 +11,5 @@
         <button type="button" class="btn btn-primary" onclick="location.href='{% url 'anwesenheitsliste' %}'">Anwesenheitsliste</button>
         <button type="button" class="btn btn-primary" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
         <button type="button" class="btn btn-primary" onclick="location.href='{% url 'import_excel' %}'">Excel Import</button>
-    {% endblock page_content %}
+        <button type="button" class="btn btn-primary" onclick="location.href='/admin/'">Schüler hinzufügen, bearbeiten, löschen</button>
+        {% endblock page_content %}
