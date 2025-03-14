@@ -8,10 +8,11 @@
     {% block page_content %}
 
         <h1>Schülerliste</h1>
-        <button type="button" class="btn btn-info"    onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
         <button type="button" class="btn btn-info"    onclick="location.href='{% url 'anwesenheitsliste' %}'">Anwesenheitsliste</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
-        <button type="button" class="btn btn-warning" onclick="location.href='{% url 'zeitspeichernverlassen_alle' %}'">Alle abmelden</button>
+        <button type="button" class="btn btn-info" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
+        <button type="button" class="btn btn-info" onclick="location.href='{% url 'mitarbeiteroptionen' %}'">Mitarbeiteroptionen</button>
+        <!--button type="button" class="btn btn-info"    onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button-->
+        <!--button type="button" class="btn btn-warning" onclick="location.href='{% url 'zeitspeichernverlassen_alle' %}'">Alle abmelden</button-->
 
         {% render_table table %}
     {% endblock page_content %} 

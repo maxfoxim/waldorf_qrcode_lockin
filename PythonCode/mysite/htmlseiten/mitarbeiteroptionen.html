@@ -1,0 +1,17 @@
+{# mysite/hello.html #}
+{% extends "htmlseiten/base.html" %}
+
+{% load render_table from django_tables2 %}
+
+{% block title %}Hauptseite{% endblock title %}
+{% block page_content %}
+<h1>Mitarbeiteroptionen<br></h1>      
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
+<button type="button" class="btn btn-info"    onclick="location.href='{% url 'klassenauswahl' %}'">Klassenauswahl</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'anwesenheitsliste' %}'">Anwesenheitsliste</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'import_excel' %}'">Excel Import</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'export_excel' %}'">Excel Datei Erstellen</button>
+<button type="button" class="btn btn-info" onclick='location.href="/static/output.xlsx"' download>Download Exceldokument</button>
+<button type="button" class="btn btn-info" onclick="location.href='/admin/'">Schüler hinzufügen, bearbeiten, löschen</button>
+{% endblock page_content %}

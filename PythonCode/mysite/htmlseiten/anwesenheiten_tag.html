@@ -66,12 +66,17 @@
 {% block page_content %}
 
 <h1>Heutige Anwesenheiten</h1>
-<button type="button" class="btn btn-info"   onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
+
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'klassenauswahl' %}'">Klassenauswahl</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'mitarbeiteroptionen' %}'">Mitarbeiteroptionen</button>
+
+<!--button type="button" class="btn btn-info"   onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
 <button type="button" class="btn btn-info"   onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
 <button type="button" class="btn btn-info"   onclick="location.href='{% url 'anmeldung_korrigieren' %}'">Anmeldung korrigieren</button>
 <button type="button" class="btn btn-warning"onclick="location.href='{% url 'zeitspeichernverlassen_alle' %}'">Alle abmelden</button>
 <button type="button" class="btn btn-danger" onclick="location.href='{% url 'export_excel' %}'">Excel Datei Erstellen</button>
-<button type="button" class="btn btn-danger" onclick='location.href="/static/output.xlsx"' download>Download Exceldokument</button>
+<button type="button" class="btn btn-danger" onclick='location.href="/static/output.xlsx"' download>Download Exceldokument</button-->
 
 
 <table id="anwesenheitstabelle" class="table table-striped">

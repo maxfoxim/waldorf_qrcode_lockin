@@ -7,15 +7,17 @@
 
     {% block page_content %}
     <h1>Klassenliste Übersicht</h1>
-    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
-    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'anwesenheitsliste' %}'">Anwesenheitsliste</button>
-    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
+    <!--button type="button" class="btn btn-info" onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
+    <button type="button" class="btn btn-info" onclick="location.href='{% url 'anwesenheitsliste' %}'">Anwesenheitsliste</button-->
+    <button type="button" class="btn btn-info" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
+    <button type="button" class="btn btn-info" onclick="location.href='{% url 'mitarbeiteroptionen' %}'">Mitarbeiteroptionen</button>
+
     <table id="klassen" class="table table-striped">
 
     {% for x in alter %}
         <tr>
         {% for y in buchstaben %}
-            <th> <button type="button" class="btn btn-info" style="padding:20px 30px; font-size:3rem"   onclick="location.href='{% url 'schueler_klassenauswahl' x y%}'">{{x}}{{y}}</button> </th>
+            <th> <button type="button" class="btn btn-warning" style="padding:20px 30px; font-size:3rem"   onclick="location.href='{% url 'schueler_klassenauswahl' x y%}'">{{x}}{{y}}</button> </th>
         {% endfor %}
         </tr>
         {% endfor %}

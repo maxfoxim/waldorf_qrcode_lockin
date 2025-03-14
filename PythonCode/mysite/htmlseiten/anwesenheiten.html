@@ -85,13 +85,13 @@ tr:nth-of-type(odd) {
 </style-->
 
 <h1>Anwesenheitsliste Übersicht</h1>
-<button type="button" class="btn btn-info"    onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button>
-<button type="button" class="btn btn-info"    onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
-<button type="button" class="btn btn-info"    onclick="location.href='{% url 'klassenauswahl' %}'">Klassenauswahl</button>
-<button type="button" class="btn btn-info"    onclick="location.href='{% url 'anmeldung_korrigieren' %}'">Anmeldung korrigieren</button>
-<button type="button" class="btn btn-primary" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
-<button type="button" class="btn btn-danger"  onclick="location.href='{% url 'export_excel' %}'">Excel Datei Erstellen</button>
-<button type="button" class="btn btn-danger"  onclick='location.href="/static/output.xlsx"' download>Download Exceldokument</button>
+<!--button type="button" class="btn btn-info" onclick="location.href='{% url 'hauptseite' %}'">Hauptseite</button-->
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'schuelerliste' %}'">Schülerliste</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'klassenauswahl' %}'">Klassenauswahl</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'anmeldung_korrigieren' %}'">Anmeldung korrigieren</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'anwesenheitsliste_tag' %}'">Heutige Anmeldungen</button>
+<button type="button" class="btn btn-info" onclick="location.href='{% url 'export_excel' %}'">Excel Datei Erstellen</button>
+<button type="button" class="btn btn-info" onclick='location.href="/static/output.xlsx"' download>Download Exceldokument</button>
 
 
 <table id="anwesenheitstabelle" class="table table-striped">
@@ -102,7 +102,6 @@ tr:nth-of-type(odd) {
       <th  onclick="sortTable(3)">Angekommen</th>
       <th  onclick="sortTable(4)">Verlassen</th>
       <th  onclick="sortTable(5)">Aufenthaltsdauer [min]</th>
-
   </tr>
   {% for x in data %}
   <tr>
@@ -112,7 +111,6 @@ tr:nth-of-type(odd) {
       <td>{{x.ankunft}}</td>
       <td>{{x.verlassen }}</td>
       <td>{{x.aufenthaltsdauer}}</td>
-
   </tr>
   {% endfor %}
 </table>    

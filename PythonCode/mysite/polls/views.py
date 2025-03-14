@@ -31,6 +31,10 @@ def hauptseite(request):
     return render(request, 'htmlseiten/hauptseite.html', {'data': []})
  
 
+def mitarbeiteroptionen(request):
+    return render(request, 'htmlseiten/mitarbeiteroptionen.html', {'data': []})
+
+
 def ankommen_speichern(request, person_id):
     aktuelle_zeit=datetime.now(pytz.timezone('Europe/Berlin'))
     current_day = timezone.now().day
@@ -53,7 +57,6 @@ def ankommen_speichern(request, person_id):
     Name=    Personen.vorname
     Nachname=Personen.nachname
     print("ID ist",Name,Person)
-    
     return render(request, 'htmlseiten/hello.html', {'data': [Name+" "+Nachname]})
 
 
@@ -65,7 +68,6 @@ def verlassen_speichern(request, person_id):
     Personen=Person.objects.get(id=person_id)
     Name=    Personen.vorname
     Nachname=Personen.nachname
-
     try:
         Auslogwert=Anwesenheitsliste.objects.get(person_id=person_id,ankunft__day=current_day,ankunft__month=current_month)    
         
@@ -152,7 +154,7 @@ def export_excel(request):
     """
     anwesenheits_eintraege = Anwesenheitsliste.objects.all()
     #personen = Person.objects.all()
-    print("---------------")
+    print("--------Exceldatei erstellen-------")
     #print("Personen bei Export Excel",personen)
     vornamen=[]
     nachnamen=[]
@@ -162,8 +164,9 @@ def export_excel(request):
     differenz=[]
     kommentar=[]
     for zeile in anwesenheits_eintraege:
-        print(zeile.pk,zeile.person_id,zeile.ankunft,zeile.login_id)
         schueler=zeile.person_id#Person.objects.get(id = zeile.person_id)
+        print(zeile.pk, zeile.person_id, zeile.ankunft, zeile.login_id, schueler.nachname,schueler.vorname )
+
         nachnamen .append(schueler.nachname)
         vornamen  .append(schueler.vorname)
         klasse    .append(schueler.klasse)
@@ -174,19 +177,19 @@ def export_excel(request):
             verlassen .append(zeile.ankunft.strftime("%d.%m.%Y 18:00"))
             zeile.kommentar = "Abmeldung Automatisch"
             zeile.verlassen = zeile.ankunft.strftime("%Y-%m-%d 18:00:00Z")
-
             zeile.save()
         else:
             verlassen .append(zeile.verlassen.strftime("%d.%m.%Y %H:%M"))
 
         delta=(datetime.strptime(verlassen[-1],"%d.%m.%Y %H:%M")-datetime.strptime(ankunft[-1],"%d.%m.%Y %H:%M"))
         differenz .append(round((delta).total_seconds()/60))
-    print(nachnamen)
-    data={"Nachnamen":nachnamen,"Vornamen":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen,"DauerMinuten":differenz,"Kommentar":kommentar}
+    print("nachnamen",nachnamen)
+    data={"Nachname":nachnamen,"Vorname":vornamen,"Klasse":klasse,"Ankunft":ankunft,"Verlassen":verlassen,"DauerMinuten":differenz,"Kommentar":kommentar}
     df1 = pd.DataFrame(data,columns=['Vorname','Nachname',"Klasse",'Ankunft','Verlassen','DauerMinuten','Kommentar'])
-    two_up = Path(__file__).resolve().parents[1]
-    print(two_up)
-    df1.to_excel(str(two_up)+"/static/output.xlsx",index=False)  # download button
+    ordner_speichern_excel = Path(__file__).resolve().parents[1]
+    print("ordner_speichern_excel: ",ordner_speichern_excel)
+    print(df1)
+    df1.to_excel(str(ordner_speichern_excel)+"/static/output.xlsx",index=False)  # download button
     data=[]
     return render(request, 'htmlseiten/excelexport.html', {'data': data })
 
@@ -220,6 +223,4 @@ def Zeiten_Pro_Schueler(request,person_id):
     Gesamter_Name=Name + " " + Nachname+ "("+Klasse+")"
 
     meetingData=Anwesenheitsliste.objects.filter(person_id=person_id)    
-
-
     return render(request, 'htmlseiten/zeiten_pro_schueler.html', {'data': meetingData,"Gesamter_Name":Gesamter_Name })
