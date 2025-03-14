@@ -21,7 +21,7 @@ from polls.views import *
 
 urlpatterns = [
     #path("polls/", include("polls.urls")),
-    path("",hauptseite,name="hauptseite"),
+    path("",klassenauswahl,name="klassenauswahl"),
     path("hauptseite/",hauptseite,name="hauptseite"),
     path("schuelerliste/", PersonTableView.as_view(),name="schuelerliste"),
     path("admin/", admin.site.urls),

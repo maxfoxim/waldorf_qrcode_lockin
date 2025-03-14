@@ -18,5 +18,5 @@ python manage.py migrate
 Terminal DB abfragen:
 
 ```python
-Test=Anwesenheitsliste.objects.filter(qr_id=1).filter(ankunft__day=3).values_list("ankunft").all()
+Test=Anwesenheitsliste.objects.filter(id=1).filter(ankunft__day=3).values_list("ankunft").all()
 ```
