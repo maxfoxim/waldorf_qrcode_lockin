@@ -15,7 +15,7 @@ import pytz
 from datetime import datetime
 import os
 from pathlib import Path
-
+from django.db.models import Count
 
 class PersonTableView(SingleTableView):
     model = Person
@@ -224,3 +224,30 @@ def Zeiten_Pro_Schueler(request,person_id):
 
     meetingData=Anwesenheitsliste.objects.filter(person_id=person_id)    
     return render(request, 'htmlseiten/zeiten_pro_schueler.html', {'data': meetingData,"Gesamter_Name":Gesamter_Name })
+
+
+def Top_20_Schueler(request):
+    print("Top20 Schueler")
+    anwesenheits_eintraege=Anwesenheitsliste.objects.values("person_id").annotate(the_count=Count("person_id")).order_by("-the_count")[:10]
+    #anwesenheits_eintraege=Anwesenheitsliste.objects.annotate(count=Count("person_id")).order_by("-count")[:10]
+    meetingData = []
+    print("anwesenheits_eintraege",anwesenheits_eintraege)
+    for zeile in anwesenheits_eintraege:
+        print(zeile)
+        
+        Personen=Person.objects.get(id=zeile["person_id"])
+        
+        print(Personen.nachname, Personen.vorname, Personen.klasse, zeile)
+    
+        meetingData.append({
+            "id": zeile["person_id"],
+            "anzahl_anmeldungen": zeile["the_count"],
+            "nachname": Personen.nachname,
+            "vorname": Personen.vorname,
+            "klasse": Personen.klasse
+        })
+        
+    print("Top_20_Schueler")
+    print(meetingData)
+    return render(request, 'htmlseiten/Top_20_Schueler.html', {'data':meetingData})
+    

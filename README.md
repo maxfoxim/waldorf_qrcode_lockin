@@ -37,6 +37,6 @@ Hierfür muss zunächst auf "Excel Datei erstellen" und anschließend auf "Downl
 2) git clone https://github.com/maxfoxim/waldorf_qrcode_lockin.git
 3) Alternativ die Dateien als ZIP herunterladen
 4) Im Terminal ausführen: pip install requirements.txt
-5) Anschließend: python manage.py runserver PORT
+5) Anschließend: python manage.py runserver PORT (.venv/bin/python PythonCode/mysite/manage.py runserver )
 
 

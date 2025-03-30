@@ -37,6 +37,7 @@ urlpatterns = [
     path("anmeldung_entfernen/<int:id>/",anmeldung_entfernen,name="anmeldung_entfernen"),
     path("klassenauswahl/",klassenauswahl,name="klassenauswahl"),
     path("schueler_klassenauswahl/<str:alter>-<str:buchstabe>",schueler_klassenauswahl,name="schueler_klassenauswahl"),
-    path("mitarbeiteroptionen",mitarbeiteroptionen,name="mitarbeiteroptionen")
+    path("mitarbeiteroptionen",mitarbeiteroptionen,name="mitarbeiteroptionen"),
+    path("top_20_schueler",Top_20_Schueler,name="Top_20_Schueler")
 
 ]
