@@ -114,7 +114,16 @@ def alle_abmelden(request):
 
 
 def klassenauswahl(request):
-    alter=range(2015,2021)
+    
+    #alter=range(2015,2021)
+    klassen_liste = []
+    Personen = Person.objects.all()
+    print(Personen)
+    for Schueler in Personen:
+        klassen_liste.append(int(Schueler.klasse[0:4]))
+    
+    alter = range(min(klassen_liste),max(klassen_liste)+1)
+    print(alter)
     buchstaben = ["A","B"]
     return render(request, 'htmlseiten/klassenauswahl.html', { "alter":alter, "buchstaben":buchstaben })
 
